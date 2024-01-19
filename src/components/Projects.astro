@@ -1,0 +1,180 @@
+---
+import Angular from "./logos/angular.astro";
+import React from "./logos/react.astro";
+import NodeJS from "./logos/nodejs.astro";
+import Tailwind from "./logos/tailwind.astro";
+import Bootstrap from "./logos/bootstrap.astro";
+import Spring from "./logos/spring.astro";
+import MySQL from "./logos/mysql.astro";
+import HTML from "./logos/html.astro";
+import CSS from "./logos/css.astro";
+import JS from "./logos/javascript.astro";
+import PHP from "./logos/php.astro";
+
+import Link from "./Link.astro";
+import Github from "./logos/github.astro";
+import Web from "./icons/web.astro";
+
+const TAGS = {
+  ANGULAR: {
+    name: "Angular",
+    class:
+      "border-pink-200 bg-pink-50 text-pink-900 dark:border-pink-900 dark:bg-pink-950 dark:text-pink-200",
+    icon: Angular,
+  },
+  REACT: {
+    name: "React",
+    class:
+      "border-cyan-200 bg-cyan-50 text-cyan-900 dark:border-cyan-900 dark:bg-cyan-950 dark:text-cyan-200",
+    icon: React,
+  },
+  NODE: {
+    name: "Node.Js",
+    class:
+      "border-green-200 bg-green-50 text-green-900 dark:border-green-900 dark:bg-green-950 dark:text-green-200",
+    icon: NodeJS,
+  },
+  TAILWIND: {
+    name: "Tailwind CSS",
+    class:
+      "border-cyan-200 bg-cyan-50 text-cyan-900 dark:border-cyan-900 dark:bg-cyan-950 dark:text-cyan-200",
+    icon: Tailwind,
+  },
+  BOOTSTRAP: {
+    name: "Boostrap",
+    class:
+      "border-violet-200 bg-violet-50 text-violet-900 dark:border-violet-900 dark:bg-violet-950 dark:text-violet-200",
+    icon: Bootstrap,
+  },
+  SPRING: {
+    name: "Spring Boot",
+    class:
+      "border-green-200 bg-green-50 text-green-900 dark:border-green-900 dark:bg-green-950 dark:text-green-200",
+    icon: Spring,
+  },
+  MYSQL: {
+    name: "MySQL",
+    class:
+      "border-cyan-200 bg-cyan-50 text-cyan-900 dark:border-cyan-900 dark:bg-cyan-950 dark:text-cyan-200",
+    icon: MySQL,
+  },
+  HTML: {
+    name: "HTML",
+    class:
+      "border-orange-200 bg-orange-50 text-orange-900 dark:border-orange-900 dark:bg-orange-950 dark:text-orange-200",
+    icon: HTML,
+  },
+  CSS: {
+    name: "CSS",
+    class:
+      "border-cyan-200 bg-cyan-50 text-cyan-900 dark:border-cyan-900 dark:bg-cyan-950 dark:text-cyan-200",
+    icon: CSS,
+  },
+  JS: {
+    name: "JavaScript",
+    class:
+      "border-yellow-200 bg-yellow-50 text-yellow-900 dark:border-yellow-900 dark:bg-yellow-950 dark:text-yellow-200",
+    icon: JS,
+  },
+  PHP: {
+    name: "PHP",
+    class:
+      "border-violet-200 bg-violet-50 text-violet-900 dark:border-violet-900 dark:bg-violet-950 dark:text-violet-200",
+    icon: PHP,
+  },
+};
+
+const PROJECTS = [
+  {
+    img: "./projects/fairway.webp",
+    title: "Fairway - Indoor Golf",
+    description:
+      "Libera tu pro interior con los mejores cursos de golf. Trabajo pagado. Incluye un sistema de reservas integrando una API externa de pagos con tarjetas.",
+    tags: [TAGS.REACT, TAGS.NODE, TAGS.BOOTSTRAP, TAGS.MYSQL],
+  },
+  {
+    img: "./projects/sinergy.webp",
+    title: "Sinergy",
+    description: "Asesora tu empresa PYME.",
+    tags: [TAGS.REACT, TAGS.NODE, TAGS.BOOTSTRAP, TAGS.MYSQL],
+  },
+  {
+    img: "./projects/portfolioargprog.webp",
+    title: "Portfolio web - Argentina Programa 4.0",
+    description:
+      "Primer portfolio - Proyecto final de cursado. CRUD con API Rest en Spring Boot y base de datos MySQL. Incluye animaciones hechas con GSAP.",
+    repo: "https://github.com/XMrtN/ms-portfolio-frontend",
+    web: "https://martinsepulvedaportfolio.web.app/",
+    tags: [TAGS.ANGULAR, TAGS.SPRING, TAGS.BOOTSTRAP, TAGS.MYSQL],
+  },
+  {
+    img: "./projects/imcalculator.webp",
+    title: "IMCalculator",
+    description:
+      "Proyecto final en estudios secundarios 2021 - Calculadora de índice de masa corporal con una vista gráfica del estado de la persona.",
+    repo: "https://github.com/XMrtN/IMCalculator",
+    tags: [TAGS.HTML, TAGS.CSS, TAGS.PHP],
+  },
+  {
+    img: "./projects/summonerspedia.webp",
+    title: "Summoner'spedia",
+    description:
+      "Proyecto final en estudios secundarios 2021 - Acerca del videojuego League of Legends: Wild Rift. Incluye un tutorial básico y una lista de campeones con páginas individuales detallando información de cada uno.",
+    repo: "https://github.com/XMrtN/SummonersPedia",
+    web: "https://raw.githack.com/XMrtN/SummonersPedia/master/index.html",
+    tags: [TAGS.HTML, TAGS.CSS, TAGS.JS],
+  },
+  // {
+  //   img: "./projects/wikirift.webp",
+  //   title: "Wiki Rift",
+  //   description:
+  //     "Proyecto intermedio en estudios secundarios 2021 - Una simple página informativa acerca del videojuego League of Legends: Wild Rift.",
+  //   repo: "https://github.com/XMrtN/WikiRift",
+  //   web: "https://raw.githack.com/XMrtN/WikiRift/master/index.html",
+  //   tags: [TAGS.HTML, TAGS.CSS, TAGS.JS],
+  // },
+];
+---
+
+<section class="grid gap-y-16">
+  {
+    PROJECTS.map(({ img, title, description, tags, repo, web }) => (
+      <article>
+        <h3 class="mb-2 text-2xl font-semibold text-primary-600 dark:text-primary-300">
+          {title}
+        </h3>
+        <p class="mb-4 text-lg">{description}</p>
+        <ul class="mb-2 flex flex-wrap gap-2">
+          {tags.map((tag) => (
+            <li>
+              <span
+                class={`flex gap-x-2 rounded-full border px-2 py-1 text-xs font-medium ${tag.class}`}
+              >
+                <tag.icon class="size-4" /> {tag.name}
+              </span>
+            </li>
+          ))}
+        </ul>
+        <img
+          class="w-full rounded shadow-2xl dark:shadow-white/10"
+          src={img}
+          alt="Proyecto Martín Sepúlveda"
+        />
+        {(repo || web) && (
+          <footer class="mt-4 flex flex-wrap gap-4">
+            {repo && (
+              <Link href={repo} target="_blank" rel="noreferrer">
+                <Github class="size-5" /> Ver código fuente
+              </Link>
+            )}
+            {web && (
+              <Link href={web} target="_blank" rel="noreferrer">
+                <Web class="size-6" /> Ir al sitio web
+              </Link>
+            )}
+          </footer>
+        )}
+      </article>
+    ))
+  }
+</section>

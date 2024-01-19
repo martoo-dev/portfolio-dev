@@ -1,0 +1,109 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+import "@fontsource/onest/400.css";
+import "@fontsource/onest/500.css";
+import "@fontsource/onest/600.css";
+import "@fontsource/onest/700.css";
+
+import Header from "../components/Header.jsx";
+import ScrollUp from "../components/ScrollUp.jsx";
+
+import Container from "../components/Container.astro";
+import Title from "../components/Title.astro";
+
+import Home from "../components/Home.astro";
+import Experience from "../components/Experience.astro";
+import Projects from "../components/Projects.astro";
+import About from "../components/About.astro";
+import Contact from "../components/Contact.astro";
+import Footer from "../components/Footer.astro";
+
+import WaveTop from "../components/WaveTop.astro";
+import WaveBottom from "../components/WaveBottom.astro";
+
+import CodeIcon from "../components/icons/code.astro";
+import MenuIcon from "../components/icons/menu.astro";
+import CloseIcon from "../components/icons/close.astro";
+import SunIcon from "../components/icons/sun.astro";
+import MoonIcon from "../components/icons/moon.astro";
+import DesktopIcon from "../components/icons/desktop.astro";
+import HomeIcon from "../components/icons/home.astro";
+import UserIcon from "../components/icons/user.astro";
+import PhotoIcon from "../components/icons/photo.astro";
+import SendIcon from "../components/icons/send.astro";
+import ArrowUp from "../components/icons/arrow-up.astro";
+import Briefcase from "../components/icons/briefcase.astro";
+import Code from "../components/icons/code.astro";
+import UserCheck from "../components/icons/user-check.astro";
+import Mail from "../components/icons/mail.astro";
+---
+
+<Layout title="Martín Sepúlveda" description="My Portfolio Web">
+  <Header client:only>
+    <CodeIcon class="size-8" slot="codeIcon" />
+    <MenuIcon class="size-6" slot="menuIcon" />
+    <CloseIcon class="size-6" slot="closeIcon" />
+    <SunIcon class="size-6" slot="sunIcon" />
+    <MoonIcon class="size-6" slot="moonIcon" />
+    <DesktopIcon class="size-6" slot="desktopIcon" />
+    <HomeIcon class="size-6 sm:hidden" slot="homeIcon" />
+    <UserIcon class="size-6 sm:hidden" slot="userIcon" />
+    <PhotoIcon class="size-6 sm:hidden" slot="photoIcon" />
+    <SendIcon class="size-6 sm:hidden" slot="sendIcon" />
+  </Header>
+
+  <ScrollUp client:only>
+    <ArrowUp
+      class="size-8 transition-transform group-hover:-translate-y-1"
+      slot="arrowIcon"
+    />
+  </ScrollUp>
+
+  <main class="relative">
+    <WaveTop />
+
+    <Container
+      id="inicio"
+      class="grid grid-cols-[max-content_1fr] items-center justify-center gap-4 pt-44 xs:gap-8 sm:grid-cols-[max-content_1fr_max-content]"
+    >
+      <Home />
+    </Container>
+
+    <Container id="experiencia">
+      <Title>
+        <Briefcase class="size-7" /> Experiencia
+      </Title>
+
+      <Experience />
+    </Container>
+
+    <Container id="proyectos">
+      <Title>
+        <Code class="size-7" /> Proyectos
+      </Title>
+
+      <Projects />
+    </Container>
+
+    <Container id="sobre-mi">
+      <Title>
+        <UserCheck class="size-7" /> Sobre mí
+      </Title>
+
+      <About />
+    </Container>
+
+    <Container id="contacto">
+      <Title>
+        <Mail class="size-7" /> Contacto
+      </Title>
+
+      <Contact />
+    </Container>
+
+    <WaveBottom />
+  </main>
+
+  <Footer />
+</Layout>

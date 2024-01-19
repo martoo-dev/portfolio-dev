@@ -1,0 +1,99 @@
+---
+import Facebook from "./logos/facebook.astro";
+import Instagram from "./logos/instagram.astro";
+import Telegram from "./logos/telegram.astro";
+
+const LINKS = [
+  {
+    href: "#inicio",
+    name: "Inicio",
+  },
+  {
+    href: "#experiencia",
+    name: "Experiencia",
+  },
+  {
+    href: "#sobre-mi",
+    name: "Sobre mí",
+  },
+];
+const SOCIALS = [
+  {
+    icon: Facebook,
+    text: "facebook",
+    href: "#",
+  },
+  {
+    icon: Instagram,
+    text: "instagram",
+    href: "#",
+  },
+  {
+    icon: Telegram,
+    text: "telegram",
+    href: "#",
+  },
+];
+---
+
+<footer
+  class="mb-14 bg-gradient-to-r from-primary-100 to-primary-400 pb-12 pt-24 text-primary-900 dark:bg-primary-950 dark:bg-none dark:text-zinc-400 sm:mb-0 md:pb-14"
+>
+  <div
+    class="mx-auto grid gap-8 px-3 sm:max-lg:container sm:grid-cols-2 md:grid-cols-[max-content_1fr_max-content] lg:max-w-3xl"
+  >
+    <div>
+      <h1 class="text-xl font-semibold">Martín Sepúlveda</h1>
+      <span class="mt-2 text-sm font-medium">Desarrollador</span>
+    </div>
+
+    <ul class="flex flex-col gap-6 md:flex-row md:justify-center">
+      {
+        LINKS.map((link) => (
+          <li>
+            <a
+              href={link.href}
+              aria-label={link.name}
+              class="whitespace-nowrap p-1 font-medium transition hover:text-primary-600 active:text-primary-700 dark:hover:text-primary-300 dark:active:text-primary-400"
+            >
+              {link.name}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+
+    <div class="flex h-max items-center gap-x-4 md:justify-self-end">
+      {
+        SOCIALS.map((social) => (
+          <a
+            href={social.href}
+            aria-label={social.text}
+            target="_blank"
+            class="p-1 transition-colors hover:text-primary-600 active:text-primary-700 dark:hover:text-primary-300 dark:active:text-primary-400"
+          >
+            <social.icon class="size-5" />
+          </a>
+        ))
+      }
+    </div>
+  </div>
+
+  <p
+    class="mt-12 text-center text-xs font-medium text-zinc-600 dark:text-zinc-400"
+  >
+    &#169; 2023. Hecho con ❤️ por Martín. Estructura inspirada en
+    <a
+      class="text-primary-700 underline decoration-primary-700 dark:text-primary-500 dark:decoration-primary-500"
+      href="https://porfolio.dev/"
+      target="_blank"
+      rel="noreferrer">midudev</a
+    > y diseño en
+    <a
+      class="text-primary-700 underline decoration-primary-700 dark:text-primary-500 dark:decoration-primary-500"
+      href="https://www.wrappingmati.com.ar/"
+      target="_blank"
+      rel="noreferrer">wrappingmati</a
+    >.
+  </p>
+</footer>
