@@ -69,7 +69,7 @@ const Header = (props) => {
           className="bg-gradient-to-r from-primary-100 to-primary-400 font-semibold text-primary-900 dark:bg-primary-950 dark:bg-none dark:text-primary-300"
         >
           <div className="mx-auto flex items-center justify-between gap-2 overflow-hidden px-3 py-1.5 sm:max-lg:container lg:max-w-3xl">
-            <a className="py-1.5 text-2xl" href="#inicio">
+            <a className="py-1.5 text-2xl" href="#inicio" aria-label="Inicio">
               {props.codeIcon}
             </a>
 
@@ -105,9 +105,9 @@ const Header = (props) => {
             </div>
 
             <div
-              className={`fixed bottom-14 left-0 -z-10 w-full items-center gap-2 sm:static sm:z-0 sm:flex ${
-                open ? "" : "translate-y-full"
-              } bg-gradient-to-r p-3 transition-transform dark:bg-primary-950 dark:bg-none sm:translate-y-0 sm:bg-none sm:p-0`}
+              className={`fixed bottom-14 left-0 -z-10 w-full items-center gap-2 bg-gradient-to-r p-3 transition-transform dark:bg-primary-950 dark:bg-none sm:static sm:z-0 sm:flex sm:translate-y-0 sm:bg-none sm:p-0 ${
+                !open ? "translate-y-full" : ""
+              }`}
             >
               <ul className="grid grid-cols-2 items-center gap-1 xs:grid-cols-3 sm:mx-auto sm:flex">
                 {LINKS.map((link) => (
@@ -116,7 +116,7 @@ const Header = (props) => {
                       href={link.href}
                       aria-label={link.name}
                       onClick={() => setOpen(false)}
-                      className="flex flex-col items-center gap-1 whitespace-nowrap rounded-full px-3 py-1 leading-4 hover:bg-primary-100/30 active:bg-primary-100/70 dark:hover:bg-primary-900/30 dark:active:bg-primary-900/70"
+                      className="flex flex-col items-center gap-1 whitespace-nowrap rounded-full px-3 py-1 leading-4 hover:bg-primary-100/70 active:bg-primary-200/70 dark:hover:bg-primary-900/70 dark:active:bg-primary-800/70"
                     >
                       {link.icon}
                       {link.name}
