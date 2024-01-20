@@ -3,6 +3,8 @@ import Picture from "./Picture.astro";
 ---
 
 <div class="grid gap-8 sm:grid-cols-[1fr_max-content]">
+  <Picture class="justify-self-center sm:order-last md:max-w-[256px]" />
+
   <div
     class="grid gap-y-4 [&_strong]:text-primary-900 dark:[&_strong]:text-primary-100"
   >
@@ -17,7 +19,7 @@ import Picture from "./Picture.astro";
       Actualmente con 20 años estoy en mi último año en una <strong
         >carrera de Desarrollo de Software</strong
       > y he amplado mis conocimientos a lenguajes como Java y Python y frameworks
-      frontend como Angular, React, Next.js, Node.Js y Astro.
+      como Angular, React, Next.js, Node.Js, Spring y Astro.
     </p>
 
     <p>
@@ -27,6 +29,4 @@ import Picture from "./Picture.astro";
       >, obteniendo mis primeros ingresos gracias a ello.
     </p>
   </div>
-
-  <Picture class="justify-self-center" />
 </div>
