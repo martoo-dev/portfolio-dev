@@ -18,15 +18,25 @@ const { title, description } = Astro.props;
     <title>{title}</title>
   </head>
   <body
-    class="font-onest bg-primary-1 text-zinc-600 dark:bg-primary-1000 dark:text-zinc-400"
+    class="bg-primary-1 font-onest text-zinc-600 dark:bg-primary-1000 dark:text-zinc-400"
   >
     <slot />
   </body>
 </html>
 
 <style is:global>
+  :root {
+    color-scheme: light dark;
+  }
+
   html {
     scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
   }
 
   body {
