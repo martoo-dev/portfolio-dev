@@ -23,7 +23,7 @@ const ScrollUp = (props) => {
       type="button"
       title="Ir al inicio"
       onClick={handleScrollToTop}
-      class={`group fixed bottom-0 right-0 z-20 mb-[4.25rem] mr-3 rounded-full bg-primary-600 p-2 text-zinc-100 transition hover:bg-primary-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-900 active:bg-primary-800 dark:bg-primary-300 dark:text-zinc-800 dark:focus-visible:ring-primary-600 sm:mb-4 sm:mr-4 ${!visible ? "translate-y-[200%]" : ""}`}
+      class={`group fixed bottom-0 right-0 z-20 mb-[4.25rem] mr-3 rounded-full bg-primary-600 p-2 text-zinc-100 transition hover:bg-primary-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-900 active:bg-primary-900 dark:bg-primary-300 dark:text-zinc-800 dark:hover:bg-primary-400 dark:focus-visible:ring-primary-600 dark:active:bg-primary-500 sm:mb-4 sm:mr-4 ${!visible ? "translate-y-[200%]" : ""}`}
     >
       {props.arrowIcon}
     </button>
