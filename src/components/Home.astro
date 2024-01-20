@@ -8,45 +8,35 @@ import Mail from "./icons/mail.astro";
 
 const SOCIALS = [
   {
+    icon: Download,
+    class: "size-6",
+    text: "Ver CV",
+    href: "./CV.pdf",
+  },
+  {
     icon: LinkedIn,
-    class: "size-7",
-    text: "linkedin",
+    class: "size-5",
+    text: "LinkedIn",
     href: "https://www.linkedin.com/in/mart%C3%ADn-sep%C3%BAlveda-68473828a",
   },
   {
     icon: Github,
-    class: "size-7",
-    text: "github",
+    class: "size-5",
+    text: "GitHub",
     href: "https://github.com/XMrtN",
   },
   {
     icon: Mail,
-    class: "size-8",
-    text: "correo",
+    class: "size-6",
+    text: "sepulvedamartin072@gmail.com",
     href: "mailto:sepulvedamartin072@gmail.com",
   },
 ];
 ---
 
-<article class="grid justify-items-center gap-y-4">
-  {
-    SOCIALS.map((social) => (
-      <a
-        href={social.href}
-        aria-label={social.text}
-        class="text-primary-600 transition hover:scale-110 hover:text-primary-700 active:text-primary-800 dark:text-primary-300 dark:hover:text-primary-400 dark:active:text-primary-500"
-        target="_blank"
-        rel="noreferrer"
-      >
-        <social.icon class={social.class} />
-      </a>
-    ))
-  }
-</article>
+<Picture class="sm:order-last md:max-w-[200px]" />
 
-<Picture class="sm:order-1" />
-
-<article class="col-span-2 sm:col-span-1">
+<article>
   <h1
     class="mb-2 text-3xl font-bold text-zinc-800 dark:text-zinc-100 sm:text-4xl md:text-5xl"
   >
@@ -55,11 +45,22 @@ const SOCIALS = [
     >
   </h1>
   <span class="block text-lg font-medium">Desarrollador Full Stack Junior</span>
-  <p class="mb-8 text-lg">
+  <p class="mb-4 text-lg md:mb-8">
     Desde que me introduje en el desarrollo web supe que esto era lo que quería.
   </p>
 
-  <Link href="./public/CV.pdf" target="_blank" rel="noreferrer">
-    <Download class="size-6" /> Ver CV
-  </Link>
+  <div class="flex flex-wrap items-center gap-2">
+    {
+      SOCIALS.map((social) => (
+        <Link
+          href={social.href}
+          aria-label={social.text}
+          target="_blank"
+          rel="noreferrer"
+        >
+          <social.icon class={social.class} /> {social.text}
+        </Link>
+      ))
+    }
+  </div>
 </article>
