@@ -1,13 +1,13 @@
 ---
-import Layout from "../layouts/Layout.astro";
-
 import "@fontsource/onest/400.css";
 import "@fontsource/onest/500.css";
 import "@fontsource/onest/600.css";
 import "@fontsource/onest/700.css";
 
-import Header from "../components/Header.jsx";
-import ScrollUp from "../components/ScrollUp.jsx";
+import Layout from "../layouts/Layout.astro";
+
+import Header from "../components/Header.astro";
+import ScrollUp from "../components/ScrollUp.astro";
 
 import Container from "../components/Container.astro";
 import Title from "../components/Title.astro";
@@ -22,17 +22,6 @@ import Footer from "../components/Footer.astro";
 import WaveTop from "../components/WaveTop.astro";
 import WaveBottom from "../components/WaveBottom.astro";
 
-import CodeIcon from "../components/icons/code.astro";
-import MenuIcon from "../components/icons/menu.astro";
-import CloseIcon from "../components/icons/close.astro";
-import SunIcon from "../components/icons/sun.astro";
-import MoonIcon from "../components/icons/moon.astro";
-import DesktopIcon from "../components/icons/desktop.astro";
-import HomeIcon from "../components/icons/home.astro";
-import UserIcon from "../components/icons/user.astro";
-import PhotoIcon from "../components/icons/photo.astro";
-import SendIcon from "../components/icons/send.astro";
-import ArrowUp from "../components/icons/arrow-up.astro";
 import Briefcase from "../components/icons/briefcase.astro";
 import Code from "../components/icons/code.astro";
 import UserCheck from "../components/icons/user-check.astro";
@@ -40,25 +29,8 @@ import Mail from "../components/icons/mail.astro";
 ---
 
 <Layout title="Martín Sepúlveda" description="My Portfolio Web">
-  <Header client:only>
-    <CodeIcon class="size-8" slot="codeIcon" />
-    <MenuIcon class="size-6" slot="menuIcon" />
-    <CloseIcon class="size-6" slot="closeIcon" />
-    <SunIcon class="size-6" slot="sunIcon" />
-    <MoonIcon class="size-6" slot="moonIcon" />
-    <DesktopIcon class="size-6" slot="desktopIcon" />
-    <HomeIcon class="size-6 sm:hidden" slot="homeIcon" />
-    <UserIcon class="size-6 sm:hidden" slot="userIcon" />
-    <PhotoIcon class="size-6 sm:hidden" slot="photoIcon" />
-    <SendIcon class="size-6 sm:hidden" slot="sendIcon" />
-  </Header>
-
-  <ScrollUp client:only>
-    <ArrowUp
-      class="size-8 transition-transform group-hover:-translate-y-1"
-      slot="arrowIcon"
-    />
-  </ScrollUp>
+  <Header />
+  <ScrollUp />
 
   <main class="relative">
     <WaveTop />
