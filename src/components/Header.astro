@@ -33,15 +33,19 @@ const LINKS = [
 ];
 ---
 
-<header class="fixed z-40 w-full tracking-wider max-sm:bottom-0 sm:top-0">
+<header class="fixed z-40 w-full max-sm:bottom-0 sm:top-0">
   <div
-    class="bg-gradient-to-r from-primary-100 to-primary-400 font-semibold text-primary-900 dark:bg-primary-950 dark:bg-none dark:text-primary-300"
+    class="bg-gradient-to-r from-primary-100 to-primary-400 text-primary-900 dark:bg-primary-950 dark:bg-none dark:text-primary-300"
   >
     <nav
       id="nav"
       class="mx-auto flex max-w-3xl items-center justify-between overflow-hidden px-1"
     >
-      <a class="place-content-center p-3" href="#inicio" aria-label="Inicio">
+      <a
+        class="place-content-center p-3 transition-colors active:text-primary-600 dark:active:text-primary-600"
+        href="#inicio"
+        aria-label="Inicio"
+      >
         <Code class="size-8" />
       </a>
 
@@ -55,7 +59,7 @@ const LINKS = [
               <a
                 href={link.href}
                 aria-label={link.name}
-                class="flex flex-col items-center gap-0.5 whitespace-nowrap rounded-full px-4 py-2 leading-4 hover:bg-primary-100/70 active:bg-primary-200/70 dark:hover:bg-primary-900/70 dark:active:bg-primary-800/70 max-sm:text-xs sm:py-1"
+                class="flex flex-col items-center gap-0.5 whitespace-nowrap rounded-full px-4 py-2 font-semibold leading-4 tracking-wider transition-colors active:text-primary-600 dark:active:text-primary-600 max-sm:text-xs sm:py-1 sm:hover:bg-primary-100/70 sm:active:bg-primary-200/70 sm:dark:hover:bg-primary-900/70 sm:dark:active:bg-primary-800/70"
               >
                 <link.icon class="size-6 sm:hidden" />
                 {link.name}
@@ -71,7 +75,7 @@ const LINKS = [
           type="button"
           title="Toggle menu"
           aria-label="Toggle menu"
-          class="place-content-center px-3 py-4 transition-colors active:text-primary-600 sm:hidden"
+          class="place-content-center px-3 py-4 transition-colors active:text-primary-600 dark:active:text-primary-600 sm:hidden"
         >
           <Menu id="menu-toggle-menu-icon" class="size-6" />
           <Close id="menu-toggle-close-icon" class="hidden size-6" />
@@ -82,7 +86,7 @@ const LINKS = [
           type="button"
           title="Cambiar tema"
           aria-label="Cambiar tema"
-          class="place-content-center px-3 py-4 transition-colors hover:text-primary-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 active:text-primary-600 dark:hover:text-primary-300 dark:active:text-primary-600"
+          class="place-content-center px-3 py-4 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 active:text-primary-600 dark:active:text-primary-600"
         >
           <Sun id="theme-toggle-light-icon" class="hidden size-6" />
           <Moon id="theme-toggle-dark-icon" class="hidden size-6" />
