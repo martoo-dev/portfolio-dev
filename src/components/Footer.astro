@@ -64,20 +64,22 @@ const SOCIALS = [
       }
     </ul>
 
-    <div class="flex h-max items-center md:justify-self-end">
+    <ul class="flex">
       {
         SOCIALS.map((social) => (
-          <a
-            href={social.href}
-            aria-label={social.text}
-            target="_blank"
-            class="px-3 py-1 transition-colors hover:text-primary-600 active:text-primary-800 dark:hover:text-primary-300 dark:active:text-primary-400 first:max-md:pl-1 md:last:pr-1"
-          >
-            <social.icon class="size-5" />
-          </a>
+          <li>
+            <a
+              href={social.href}
+              aria-label={social.text}
+              target="_blank"
+              class="px-3 py-1 transition-colors hover:text-primary-600 active:text-primary-800 dark:hover:text-primary-300 dark:active:text-primary-400 first:max-md:pl-1 md:last:pr-1"
+            >
+              <social.icon class="size-5" />
+            </a>
+          </li>
         ))
       }
-    </div>
+    </ul>
 
     <p
       class="mt-4 text-center text-xs font-medium text-zinc-600 dark:text-zinc-400 sm:col-span-2 md:col-span-3"
