@@ -67,12 +67,12 @@ const SOCIALS = [
     <ul class="flex">
       {
         SOCIALS.map((social) => (
-          <li>
+          <li class="group">
             <a
               href={social.href}
               aria-label={social.text}
               target="_blank"
-              class="px-3 py-1 transition-colors hover:text-primary-600 active:text-primary-800 dark:hover:text-primary-300 dark:active:text-primary-400 first:max-md:pl-1 md:last:pr-1"
+              class="px-3 py-1 transition-colors hover:text-primary-600 active:text-primary-800 dark:hover:text-primary-300 dark:active:text-primary-400 group-first:max-md:pl-1 group-last:md:pr-1"
             >
               <social.icon class="size-5" />
             </a>
