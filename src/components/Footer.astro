@@ -1,4 +1,5 @@
 ---
+import Container from "./Container.astro";
 import Facebook from "./logos/facebook.astro";
 import Instagram from "./logos/instagram.astro";
 import Telegram from "./logos/telegram.astro";
@@ -37,10 +38,10 @@ const SOCIALS = [
 ---
 
 <footer
-  class="mb-14 bg-gradient-to-r from-primary-100 to-primary-400 pb-12 pt-24 text-primary-900 dark:bg-primary-950 dark:bg-none dark:text-zinc-400 sm:mb-0 md:pb-14"
+  class="bg-gradient-to-r from-primary-100 to-primary-400 pb-12 text-primary-900 dark:bg-primary-950 dark:bg-none dark:text-zinc-400 max-sm:mb-14 md:pb-14"
 >
-  <div
-    class="mx-auto grid gap-8 px-3 sm:max-lg:container sm:grid-cols-2 md:grid-cols-[max-content_1fr_max-content] lg:max-w-3xl"
+  <Container
+    class="grid gap-8 sm:grid-cols-2 md:grid-cols-[max-content_1fr_max-content]"
   >
     <div>
       <h1 class="text-xl font-semibold">Martín Sepúlveda</h1>
@@ -95,5 +96,5 @@ const SOCIALS = [
         rel="noreferrer">wrappingmati</a
       >.
     </p>
-  </div>
+  </Container>
 </footer>
