@@ -1,9 +1,4 @@
 ---
-import "@fontsource/onest/400.css";
-import "@fontsource/onest/500.css";
-import "@fontsource/onest/600.css";
-import "@fontsource/onest/700.css";
-
 import Layout from "../layouts/Layout.astro";
 
 import Header from "../components/Header.astro";
@@ -28,16 +23,16 @@ import UserCheck from "../components/icons/user-check.astro";
 import Mail from "../components/icons/mail.astro";
 ---
 
-<Layout title="Martín Sepúlveda" description="My Portfolio Web">
+<Layout title="Martín Sepúlveda" description="Mi Portfolio Web">
   <Header />
   <ScrollUp />
 
-  <main class="relative">
+  <main class="relative sm:mt-14">
     <WaveTop />
 
     <Container
       id="inicio"
-      class="grid items-center justify-center gap-4 pt-24 xs:gap-8 sm:grid-cols-[1fr_max-content] sm:pt-44"
+      class="grid items-center justify-center gap-4 sm:grid-cols-[1fr_max-content] sm:gap-8"
     >
       <Home />
     </Container>
