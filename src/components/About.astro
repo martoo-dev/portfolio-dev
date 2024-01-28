@@ -3,10 +3,12 @@ import Picture from "./Picture.astro";
 ---
 
 <div class="grid gap-8 sm:grid-cols-[1fr_max-content]">
-  <Picture class="justify-self-center sm:order-last md:max-w-[256px]" />
+  <Picture
+    class="max-w-[128px] justify-self-center sm:order-last md:max-w-[256px]"
+  />
 
   <div
-    class="[&>p]:mb-4 last:[&>p]:mb-0 [&_strong]:text-primary-900 dark:[&_strong]:text-primary-100"
+    class="[&>p]:mb-4 last:[&>p]:mb-0 [&_strong]:font-semibold [&_strong]:text-primary-900 dark:[&_strong]:text-primary-100"
   >
     <p>
       Me llamo Santiago Martín Sepúlveda pero me dicen Martín. Empecé con la
