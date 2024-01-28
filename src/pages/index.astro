@@ -1,9 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
 
-import Header from "../components/Header.astro";
-import ScrollUp from "../components/ScrollUp.astro";
-
 import Container from "../components/Container.astro";
 import Title from "../components/Title.astro";
 
@@ -12,7 +9,6 @@ import Experience from "../components/Experience.astro";
 import Projects from "../components/Projects.astro";
 import About from "../components/About.astro";
 import Contact from "../components/Contact.astro";
-import Footer from "../components/Footer.astro";
 
 import WaveTop from "../components/WaveTop.astro";
 import WaveBottom from "../components/WaveBottom.astro";
@@ -24,53 +20,46 @@ import Mail from "../components/icons/mail.astro";
 ---
 
 <Layout title="Martín Sepúlveda" description="Mi Portfolio Web">
-  <Header />
-  <ScrollUp />
+  <WaveTop />
 
-  <main class="relative sm:mt-14">
-    <WaveTop />
+  <Container
+    id="inicio"
+    class="grid items-center justify-center gap-4 sm:grid-cols-[1fr_max-content] sm:gap-8"
+  >
+    <Home />
+  </Container>
 
-    <Container
-      id="inicio"
-      class="grid items-center justify-center gap-4 sm:grid-cols-[1fr_max-content] sm:gap-8"
-    >
-      <Home />
-    </Container>
+  <Container id="experiencia">
+    <Title>
+      <Briefcase class="size-7" /> Experiencia
+    </Title>
 
-    <Container id="experiencia">
-      <Title>
-        <Briefcase class="size-7" /> Experiencia
-      </Title>
+    <Experience />
+  </Container>
 
-      <Experience />
-    </Container>
+  <Container id="proyectos">
+    <Title>
+      <Code class="size-7" /> Proyectos
+    </Title>
 
-    <Container id="proyectos">
-      <Title>
-        <Code class="size-7" /> Proyectos
-      </Title>
+    <Projects />
+  </Container>
 
-      <Projects />
-    </Container>
+  <Container id="sobre-mi">
+    <Title>
+      <UserCheck class="size-7" /> Sobre mí
+    </Title>
 
-    <Container id="sobre-mi">
-      <Title>
-        <UserCheck class="size-7" /> Sobre mí
-      </Title>
+    <About />
+  </Container>
 
-      <About />
-    </Container>
+  <Container id="contacto">
+    <Title>
+      <Mail class="size-7" /> Contacto
+    </Title>
 
-    <Container id="contacto">
-      <Title>
-        <Mail class="size-7" /> Contacto
-      </Title>
+    <Contact />
+  </Container>
 
-      <Contact />
-    </Container>
-
-    <WaveBottom />
-  </main>
-
-  <Footer />
+  <WaveBottom />
 </Layout>
