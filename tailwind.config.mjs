@@ -62,7 +62,7 @@ export default {
       },
       animation: {
         waving: "waving 2.5s ease-in-out infinite",
-        float: "float 3s linear infinite",
+        float: "float 5s linear infinite",
       },
     },
   },
