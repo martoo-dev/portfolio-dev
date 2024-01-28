@@ -10,8 +10,8 @@ import Projects from "../components/Projects.astro";
 import About from "../components/About.astro";
 import Contact from "../components/Contact.astro";
 
-import WaveTop from "../components/WaveTop.astro";
-import WaveBottom from "../components/WaveBottom.astro";
+import SvgTop from "../components/SvgTop.astro";
+import SvgBottom from "../components/SvgBottom.astro";
 
 import Briefcase from "../components/icons/briefcase.astro";
 import Code from "../components/icons/code.astro";
@@ -20,11 +20,11 @@ import Mail from "../components/icons/mail.astro";
 ---
 
 <Layout title="Martín Sepúlveda" description="Mi Portfolio Web">
-  <WaveTop />
+  <SvgTop />
 
   <Container
     id="inicio"
-    class="grid items-center justify-center gap-4 sm:grid-cols-[1fr_max-content] sm:gap-8"
+    class="grid grid-cols-[repeat(2,_max-content)_1fr] items-center justify-center gap-4 sm:grid-cols-[repeat(3,_max-content)_1fr_repeat(2,_max-content)]"
   >
     <Home />
   </Container>
@@ -61,5 +61,5 @@ import Mail from "../components/icons/mail.astro";
     <Contact />
   </Container>
 
-  <WaveBottom />
+  <SvgBottom />
 </Layout>

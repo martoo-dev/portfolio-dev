@@ -35,42 +35,40 @@ const SOCIALS = [
 ];
 ---
 
-<article
-  class="flex items-center gap-x-4 sm:order-last sm:flex-col-reverse sm:gap-y-4"
+<Picture
+  class="max-w-[72px] animate-float sm:order-3 sm:col-span-2 sm:col-start-5 sm:row-span-3 sm:row-start-1 sm:max-w-[128px] md:ml-4 md:max-w-[170px]"
+/>
+<Badge class="mr-auto sm:order-2 sm:col-span-2 sm:col-start-4 sm:row-start-1"
+  >Desde Argentina 🇦🇷</Badge
 >
-  <Picture
-    class="max-w-[72px] animate-float sm:max-w-[128px] md:max-w-[200px]"
-  />
-  <Badge>Desde Argentina 🇦🇷 </Badge>
-</article>
 
-<article>
-  <h1
-    class="mb-4 text-3xl font-bold text-zinc-800 dark:text-zinc-100 sm:text-4xl md:mb-6 md:text-5xl"
+<h1
+  class="col-span-6 text-3xl font-bold text-zinc-800 dark:text-zinc-100 sm:order-1 sm:col-span-3 sm:text-4xl md:text-5xl"
+>
+  Hey, <span class="inline-block animate-waving">👋</span> soy <span
+    class="text-primary-600 dark:text-primary-300">Martín</span
   >
-    Hey, <span class="inline-block animate-waving">👋</span> soy <span
-      class="text-primary-600 dark:text-primary-300">Martín</span
-    >
-  </h1>
-  <p
-    class="mb-4 text-xl md:mb-8 [&_strong]:font-semibold [&_strong]:text-primary-900 dark:[&_strong]:text-primary-100"
-  >
-    Soy un <strong>Desarrollador Web Full Stack Junior</strong>. Desde que me
-    introduje en el desarrollo web supe que esto era lo que quería.
-  </p>
+</h1>
+<p
+  class="col-span-6 text-xl sm:order-4 sm:col-span-4 md:mb-4 [&_strong]:font-semibold [&_strong]:text-primary-900 dark:[&_strong]:text-primary-100"
+>
+  Soy un <strong>Desarrollador Web Full Stack Junior</strong>. Desde que me
+  introduje en el desarrollo web supe que esto era lo que quería.
+</p>
 
-  <div class="flex flex-wrap items-center gap-2">
-    {
-      SOCIALS.map((social) => (
-        <Link
-          href={social.href}
-          aria-label={social.text}
-          target="_blank"
-          rel="noreferrer"
-        >
-          <social.icon class={social.class} /> {social.text}
-        </Link>
-      ))
-    }
-  </div>
-</article>
+<div
+  class="col-span-6 flex flex-wrap items-center gap-2 sm:order-4 sm:col-span-4"
+>
+  {
+    SOCIALS.map((social) => (
+      <Link
+        href={social.href}
+        aria-label={social.text}
+        target="_blank"
+        rel="noreferrer"
+      >
+        <social.icon class={social.class} /> {social.text}
+      </Link>
+    ))
+  }
+</div>
