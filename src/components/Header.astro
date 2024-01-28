@@ -48,12 +48,12 @@ const LINKS = [
         class="flex flex-wrap transition-transform dark:bg-primary-950 dark:bg-none max-sm:fixed max-sm:bottom-14 max-sm:left-0 max-sm:-z-10 max-sm:w-full max-sm:translate-y-full max-sm:bg-gradient-to-r"
       >
         {
-          LINKS.map((link) => (
+          LINKS.map((link, i) => (
             <li class="max-sm:flex-1">
               <a
                 href={link.href}
                 aria-label={link.name}
-                class="flex flex-col items-center gap-0.5 whitespace-nowrap rounded-full p-4 pb-2 font-semibold leading-4 tracking-wider transition-colors max-sm:text-xs sm:py-1 sm:hover:bg-primary-50/40 sm:active:bg-primary-50/40 sm:dark:hover:bg-primary-700/50 sm:dark:active:bg-primary-700/50"
+                class={`flex flex-col items-center gap-0.5 whitespace-nowrap rounded-full p-4 pb-2 transition-colors max-sm:text-xs sm:py-1 sm:font-medium sm:hover:bg-primary-50/40 sm:active:bg-primary-50/40 sm:dark:hover:bg-primary-700/40 sm:dark:active:bg-primary-700/40 ${i === 0 ? "sm:bg-primary-50/40 sm:dark:bg-primary-700/40" : ""}`}
               >
                 <link.icon class="size-6 sm:hidden" />
                 {link.name}
@@ -91,6 +91,25 @@ const LINKS = [
 </header>
 
 <script>
+  // ==== SCROLL SPY ====
+  const links = document.querySelectorAll("header nav a");
+
+  window.addEventListener("scroll", () => {
+    links.forEach((a) => {
+      const sectionElement: HTMLDivElement | null = document.querySelector(
+        `section#${a.getAttribute("href")?.substring(1)}`,
+      );
+
+      if (window.scrollY <= sectionElement!.offsetTop - 100) return;
+      links.forEach((l) => {
+        l.classList.remove("sm:bg-primary-50/40");
+        l.classList.remove("sm:dark:bg-primary-700/40");
+      });
+      a.classList.add("sm:bg-primary-50/40");
+      a.classList.add("sm:dark:bg-primary-700/40");
+    });
+  });
+
   // ==== DARK MODE ====
   const themeToggle = document.getElementById("theme-toggle");
   const lightIcon = document.getElementById("theme-toggle-light-icon");
