@@ -18,68 +18,57 @@ import Web from "./icons/web.astro";
 const TAGS = {
   ANGULAR: {
     name: "Angular",
-    class:
-      "border-pink-200 bg-pink-50 text-pink-900 dark:border-pink-900 dark:bg-pink-950 dark:text-pink-200",
+    color: "pink",
     icon: Angular,
   },
   REACT: {
     name: "React",
-    class:
-      "border-cyan-200 bg-cyan-50 text-cyan-900 dark:border-cyan-900 dark:bg-cyan-950 dark:text-cyan-200",
+    color: "cyan",
     icon: React,
   },
   NODE: {
     name: "Node.Js",
-    class:
-      "border-green-200 bg-green-50 text-green-900 dark:border-green-900 dark:bg-green-950 dark:text-green-200",
+    color: "green",
     icon: NodeJS,
   },
   TAILWIND: {
     name: "Tailwind CSS",
-    class:
-      "border-cyan-200 bg-cyan-50 text-cyan-900 dark:border-cyan-900 dark:bg-cyan-950 dark:text-cyan-200",
+    color: "cyan",
     icon: Tailwind,
   },
   BOOTSTRAP: {
     name: "Boostrap",
-    class:
-      "border-violet-200 bg-violet-50 text-violet-900 dark:border-violet-900 dark:bg-violet-950 dark:text-violet-200",
+    color: "violet",
     icon: Bootstrap,
   },
   SPRING: {
     name: "Spring Boot",
-    class:
-      "border-green-200 bg-green-50 text-green-900 dark:border-green-900 dark:bg-green-950 dark:text-green-200",
+    color: "green",
     icon: Spring,
   },
   MYSQL: {
     name: "MySQL",
-    class:
-      "border-cyan-200 bg-cyan-50 text-cyan-900 dark:border-cyan-900 dark:bg-cyan-950 dark:text-cyan-200",
+    color: "cyan",
     icon: MySQL,
   },
   HTML: {
     name: "HTML",
-    class:
-      "border-orange-200 bg-orange-50 text-orange-900 dark:border-orange-900 dark:bg-orange-950 dark:text-orange-200",
+    color: "orange",
     icon: HTML,
   },
   CSS: {
     name: "CSS",
-    class:
-      "border-cyan-200 bg-cyan-50 text-cyan-900 dark:border-cyan-900 dark:bg-cyan-950 dark:text-cyan-200",
+    color: "cyan",
     icon: CSS,
   },
   JS: {
     name: "JavaScript",
-    class:
-      "border-yellow-200 bg-yellow-50 text-yellow-900 dark:border-yellow-900 dark:bg-yellow-950 dark:text-yellow-200",
+    color: "yellow",
     icon: JS,
   },
   PHP: {
     name: "PHP",
-    class:
-      "border-violet-200 bg-violet-50 text-violet-900 dark:border-violet-900 dark:bg-violet-950 dark:text-violet-200",
+    color: "violet",
     icon: PHP,
   },
 };
@@ -140,7 +129,7 @@ const PROJECTS = [
           {tags.map((tag) => (
             <li>
               <span
-                class={`flex gap-x-2 rounded-full border px-2 py-1 text-xs ${tag.class}`}
+                class={`flex gap-x-2 rounded-full border px-2 py-1 text-xs border-${tag.color}-200 bg-${tag.color}-50 text-${tag.color}-900 dark:border-${tag.color}-900 dark:bg-${tag.color}-950 dark:text-${tag.color}-200`}
               >
                 <tag.icon class="size-4" /> {tag.name}
               </span>
