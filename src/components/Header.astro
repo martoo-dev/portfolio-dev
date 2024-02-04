@@ -1,94 +1,77 @@
 ---
-import Close from "./icons/close.astro";
-import Code from "./icons/code.astro";
-import Home from "./icons/home.astro";
-import Menu from "./icons/menu.astro";
 import Moon from "./icons/moon.astro";
-import Photo from "./icons/photo.astro";
-import Send from "./icons/send.astro";
 import Sun from "./icons/sun.astro";
-import User from "./icons/user.astro";
 
 const LINKS = [
   {
-    href: "#inicio",
-    name: "Inicio",
-    icon: Home,
+    href: "#experiencia",
+    name: "Experiencia",
   },
   {
     href: "#proyectos",
     name: "Proyectos",
-    icon: Photo,
   },
   {
     href: "#sobre-mi",
     name: "Sobre mí",
-    icon: User,
-  },
-  {
-    href: "#contacto",
-    name: "Contacto",
-    icon: Send,
   },
 ];
 ---
 
-<header class="fixed z-40 w-full max-sm:bottom-0 sm:top-0">
-  <div
-    class="bg-gradient-to-r from-primary-100 to-primary-400 text-primary-900 dark:bg-primary-950 dark:bg-none dark:text-primary-300"
+<header class="fixed top-0 z-40 mt-2 flex w-full justify-center">
+  <nav
+    class="flex items-center overflow-hidden rounded-full px-3 text-primary-600 dark:text-primary-600"
   >
-    <nav
-      id="nav"
-      class="mx-auto flex max-w-3xl items-center justify-between overflow-hidden px-1"
+    {
+      LINKS.map((link, i) => (
+        <a
+          href={link.href}
+          aria-label={link.name}
+          class="whitespace-nowrap rounded-full p-2 text-sm font-medium transition-colors"
+        >
+          {link.name}
+        </a>
+      ))
+    }
+
+    <button
+      id="theme-toggle"
+      type="button"
+      title="Cambiar tema"
+      aria-label="Cambiar tema"
+      class="place-content-center px-2 py-1.5 transition-colors focus-visible:outline-none active:text-primary-900 dark:active:text-primary-300"
     >
-      <Code class="m-2 size-10" />
-
-      <ul
-        id="ul"
-        class="flex flex-wrap transition-transform dark:bg-primary-950 dark:bg-none max-sm:fixed max-sm:bottom-14 max-sm:left-0 max-sm:-z-10 max-sm:w-full max-sm:translate-y-full max-sm:bg-gradient-to-r"
-      >
-        {
-          LINKS.map((link, i) => (
-            <li class="max-sm:flex-1">
-              <a
-                href={link.href}
-                aria-label={link.name}
-                class={`flex flex-col items-center gap-0.5 whitespace-nowrap rounded-full p-4 pb-2 transition-colors max-sm:text-xs sm:py-1 sm:font-medium sm:hover:bg-primary-50/40 sm:active:bg-primary-50/40 sm:dark:hover:bg-primary-700/40 sm:dark:active:bg-primary-700/40 ${i === 0 ? "sm:bg-primary-50/40 sm:dark:bg-primary-700/40" : ""}`}
-              >
-                <link.icon class="size-6 sm:hidden" />
-                {link.name}
-              </a>
-            </li>
-          ))
-        }
-      </ul>
-
-      <div class="flex">
-        <button
-          id="menu-toggle"
-          type="button"
-          title="Toggle menu"
-          aria-label="Toggle menu"
-          class="place-content-center px-3 py-4 transition-colors active:text-primary-600 dark:active:text-primary-600 sm:hidden"
-        >
-          <Menu id="menu-toggle-menu-icon" class="size-6" />
-          <Close id="menu-toggle-close-icon" class="hidden size-6" />
-        </button>
-
-        <button
-          id="theme-toggle"
-          type="button"
-          title="Cambiar tema"
-          aria-label="Cambiar tema"
-          class="place-content-center px-3 py-4 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 active:text-primary-600 dark:active:text-primary-600"
-        >
-          <Sun id="theme-toggle-light-icon" class="hidden size-6" />
-          <Moon id="theme-toggle-dark-icon" class="hidden size-6" />
-        </button>
-      </div>
-    </nav>
-  </div>
+      <Sun id="theme-toggle-light-icon" class="hidden size-6" />
+      <Moon id="theme-toggle-dark-icon" class="hidden size-6" />
+    </button>
+  </nav>
 </header>
+
+<style>
+  nav {
+    animation: nav-shadown 1s linear both;
+    animation-timeline: scroll();
+    animation-range: 0 100px;
+  }
+
+  :is(.dark nav) {
+    animation: nav-shadown-dark 1s linear both;
+    animation-timeline: scroll();
+    animation-range: 0 100px;
+  }
+
+  @keyframes nav-shadown {
+    to {
+      @apply bg-gradient-to-r from-primary-100 to-primary-400 shadow-lg ring-1 ring-primary-600;
+    }
+  }
+
+  @keyframes nav-shadown-dark {
+    to {
+      @apply bg-primary-950 shadow-lg ring-1 ring-primary-600;
+    }
+  }
+</style>
 
 <script>
   // ==== SCROLL SPY ====
@@ -102,14 +85,16 @@ const LINKS = [
 
       if (window.scrollY <= sectionElement!.offsetTop - 100) return;
       links.forEach((l) => {
-        l.classList.remove("sm:bg-primary-50/40");
-        l.classList.remove("sm:dark:bg-primary-700/40");
+        l.classList.remove("text-primary-900");
+        l.classList.remove("dark:text-primary-300");
       });
-      a.classList.add("sm:bg-primary-50/40");
-      a.classList.add("sm:dark:bg-primary-700/40");
+      a.classList.add("text-primary-900");
+      a.classList.add("dark:text-primary-300");
     });
   });
+</script>
 
+<script>
   // ==== DARK MODE ====
   const themeToggle = document.getElementById("theme-toggle");
   const lightIcon = document.getElementById("theme-toggle-light-icon");
@@ -176,28 +161,4 @@ const LINKS = [
   window.addEventListener("beforeunload", () =>
     localStorage.removeItem("color-theme"),
   );
-
-  // ==== TOGGLE MENU ====
-  const menuToggle = document.getElementById("menu-toggle");
-  const menuIcon = document.getElementById("menu-toggle-menu-icon");
-  const closeIcon = document.getElementById("menu-toggle-close-icon");
-  const ul = document.getElementById("ul");
-
-  document.addEventListener("click", (e) => {
-    const target = e.target as HTMLDivElement;
-    if (
-      target.closest("#menu-toggle") !== menuToggle &&
-      target.closest("#theme-toggle") !== themeToggle
-    ) {
-      ul?.classList.add("max-sm:translate-y-full");
-      menuIcon?.classList.remove("hidden");
-      closeIcon?.classList.add("hidden");
-    }
-  });
-
-  menuToggle?.addEventListener("click", () => {
-    menuIcon?.classList.toggle("hidden");
-    closeIcon?.classList.toggle("hidden");
-    ul?.classList.toggle("max-sm:translate-y-full");
-  });
 </script>
