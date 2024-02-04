@@ -1,8 +1,5 @@
 ---
 import Container from "./Container.astro";
-import Facebook from "./logos/facebook.astro";
-import Instagram from "./logos/instagram.astro";
-import Telegram from "./logos/telegram.astro";
 
 const LINKS = [
   {
@@ -18,44 +15,36 @@ const LINKS = [
     name: "Sobre mí",
   },
 ];
-const SOCIALS = [
-  {
-    icon: Facebook,
-    text: "facebook",
-    href: "https://www.facebook.com/profile.php?id=100071287513937",
-  },
-  {
-    icon: Instagram,
-    text: "instagram",
-    href: "https://www.instagram.com/martin07.24/",
-  },
-  {
-    icon: Telegram,
-    text: "telegram",
-    href: "https://t.me/XMrtN",
-  },
-];
 ---
 
 <footer
-  class="bg-gradient-to-r from-primary-100 to-primary-400 pb-12 text-primary-900 dark:bg-primary-950 dark:bg-none dark:text-zinc-400 max-sm:mb-14 md:pb-14"
+  class="bg-gradient-to-r from-primary-100 to-primary-400 pb-12 dark:bg-primary-950 dark:bg-none md:pb-14"
 >
-  <Container
-    class="grid gap-8 sm:grid-cols-2 md:grid-cols-[max-content_1fr_max-content]"
-  >
-    <div>
-      <h1 class="text-xl font-semibold">Martín Sepúlveda</h1>
-      <span class="mt-2 text-sm font-medium">Desarrollador</span>
-    </div>
+  <Container class="grid gap-8 text-sm sm:grid-cols-2">
+    <span class="text-zinc-600 dark:text-zinc-400">
+      &#169; 2024. Estructura de
+      <a
+        class="text-primary-900 decoration-primary-900 hover:underline dark:text-primary-300 dark:decoration-primary-300"
+        href="https://porfolio.dev/"
+        target="_blank"
+        rel="noreferrer">midudev</a
+      > y diseño de
+      <a
+        class="text-primary-900 decoration-primary-900 hover:underline dark:text-primary-300 dark:decoration-primary-300"
+        href="https://www.wrappingmati.com.ar/"
+        target="_blank"
+        rel="noreferrer">wrappingmati</a
+      >.
+    </span>
 
-    <ul class="md:flex md:justify-center">
+    <ul class="sm:flex sm:justify-end">
       {
         LINKS.map((link) => (
-          <li>
+          <li class="group">
             <a
               href={link.href}
               aria-label={link.name}
-              class="inline-block whitespace-nowrap px-1 py-3 font-medium leading-4 transition-colors hover:text-primary-600 active:text-primary-800 dark:hover:text-primary-300 dark:active:text-primary-400 max-md:-ml-1 md:px-3 md:py-1"
+              class="inline-block whitespace-nowrap py-2 font-medium text-primary-900 transition-colors hover:text-primary-600 group-last:pr-0 dark:text-zinc-400 dark:hover:text-primary-300 sm:px-2"
             >
               {link.name}
             </a>
@@ -63,40 +52,5 @@ const SOCIALS = [
         ))
       }
     </ul>
-
-    <ul class="flex">
-      {
-        SOCIALS.map((social) => (
-          <li class="group">
-            <a
-              href={social.href}
-              aria-label={social.text}
-              target="_blank"
-              class="inline-block px-3 py-1 transition-colors hover:text-primary-600 active:text-primary-800 dark:hover:text-primary-300 dark:active:text-primary-400 max-md:group-first:-ml-3 md:group-last:-mr-3"
-            >
-              <social.icon class="size-5" />
-            </a>
-          </li>
-        ))
-      }
-    </ul>
-
-    <p
-      class="mt-4 text-center text-xs font-medium text-zinc-600 dark:text-zinc-400 sm:col-span-2 md:col-span-3"
-    >
-      &#169; 2023. Hecho con ❤️ por Martín. Estructura inspirada en
-      <a
-        class="text-primary-700 underline decoration-primary-700 dark:text-primary-500 dark:decoration-primary-500"
-        href="https://porfolio.dev/"
-        target="_blank"
-        rel="noreferrer">midudev</a
-      > y diseño en
-      <a
-        class="text-primary-700 underline decoration-primary-700 dark:text-primary-500 dark:decoration-primary-500"
-        href="https://www.wrappingmati.com.ar/"
-        target="_blank"
-        rel="noreferrer">wrappingmati</a
-      >.
-    </p>
   </Container>
 </footer>
