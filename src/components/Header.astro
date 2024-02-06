@@ -18,9 +18,9 @@ const LINKS = [
 ];
 ---
 
-<header class="fixed top-0 z-40 mt-2 flex w-full justify-center">
+<header class="fixed top-0 z-40 mt-2 flex w-full justify-center px-4">
   <nav
-    class="flex items-center overflow-hidden rounded-full px-3 text-primary-600 dark:text-primary-600"
+    class="flex flex-wrap items-center justify-center overflow-hidden rounded-full px-3 text-primary-600 dark:text-primary-600"
   >
     {
       LINKS.map((link, i) => (
@@ -55,9 +55,7 @@ const LINKS = [
   }
 
   :is(.dark nav) {
-    animation: nav-shadown-dark 1s linear both;
-    animation-timeline: scroll();
-    animation-range: 0 100px;
+    animation-name: nav-shadown-dark;
   }
 
   @keyframes nav-shadown {
@@ -78,19 +76,33 @@ const LINKS = [
   const links = document.querySelectorAll("header nav a");
 
   window.addEventListener("scroll", () => {
+    let sectionVisible = false;
+
     links.forEach((a) => {
       const sectionElement: HTMLDivElement | null = document.querySelector(
-        `section#${a.getAttribute("href")?.substring(1)}`,
+        `section${a.getAttribute("href")}`,
       );
 
-      if (window.scrollY <= sectionElement!.offsetTop - 100) return;
-      links.forEach((l) => {
-        l.classList.remove("text-primary-900");
-        l.classList.remove("dark:text-primary-300");
-      });
-      a.classList.add("text-primary-900");
-      a.classList.add("dark:text-primary-300");
+      if (!sectionElement) return;
+
+      if (
+        window.scrollY >= sectionElement.offsetTop - 160 &&
+        window.scrollY <
+          sectionElement.offsetTop - 160 + sectionElement.offsetHeight
+      ) {
+        sectionVisible = true;
+        links.forEach((link) => {
+          link.classList.remove("text-primary-900", "dark:text-primary-300");
+        });
+        a.classList.add("text-primary-900", "dark:text-primary-300");
+      }
     });
+
+    if (!sectionVisible) {
+      links.forEach((link) => {
+        link.classList.remove("text-primary-900", "dark:text-primary-300");
+      });
+    }
   });
 </script>
 
