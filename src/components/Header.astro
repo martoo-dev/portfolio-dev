@@ -20,14 +20,14 @@ const LINKS = [
 
 <header class="fixed top-0 z-40 mt-2 flex w-full justify-center px-4">
   <nav
-    class="flex flex-wrap items-center justify-center overflow-hidden rounded-full px-3 text-primary-600 dark:text-primary-600"
+    class="flex flex-wrap items-center justify-center overflow-hidden rounded-full px-2 text-primary-600 dark:text-primary-600"
   >
     {
       LINKS.map((link, i) => (
         <a
           href={link.href}
           aria-label={link.name}
-          class="whitespace-nowrap rounded-full p-2 text-sm font-medium transition-colors"
+          class="whitespace-nowrap rounded-full px-3 py-1 text-sm font-medium transition-colors hover:bg-primary-900/10 dark:hover:bg-primary-50/10"
         >
           {link.name}
         </a>
@@ -39,7 +39,7 @@ const LINKS = [
       type="button"
       title="Cambiar tema"
       aria-label="Cambiar tema"
-      class="place-content-center px-2 py-1.5 transition-colors focus-visible:outline-none active:text-primary-900 dark:active:text-primary-300"
+      class="place-content-center px-3 py-1.5 transition-colors hover:text-primary-900 focus-visible:outline-none dark:hover:text-primary-300"
     >
       <Sun id="theme-toggle-light-icon" class="hidden size-6" />
       <Moon id="theme-toggle-dark-icon" class="hidden size-6" />
