@@ -10,25 +10,21 @@ import Mail from "./icons/mail.astro";
 const SOCIALS = [
   {
     icon: Download,
-    class: "size-6",
     text: "Ver CV",
     href: "./CV.pdf",
   },
   {
     icon: LinkedIn,
-    class: "size-5",
     text: "LinkedIn",
     href: "https://www.linkedin.com/in/mart%C3%ADn-sep%C3%BAlveda-68473828a",
   },
   {
     icon: Github,
-    class: "size-5",
     text: "GitHub",
     href: "https://github.com/XMrtN",
   },
   {
     icon: Mail,
-    class: "size-6",
     text: "Contáctame",
     href: "mailto:sepulvedamartin072@gmail.com",
   },
@@ -36,7 +32,7 @@ const SOCIALS = [
 ---
 
 <Picture
-  class="w-20 animate-float sm:order-3 sm:col-span-2 sm:col-start-5 sm:row-span-3 sm:row-start-1 sm:w-32 md:ml-4 md:w-44"
+  class="w-20 sm:order-3 sm:col-span-2 sm:col-start-5 sm:row-span-3 sm:row-start-1 sm:w-32 md:ml-4 md:w-44"
 />
 <Badge class="mr-auto sm:order-2 sm:col-span-2 sm:col-start-4 sm:row-start-1"
   >Desde Argentina 🇦🇷</Badge
@@ -67,7 +63,7 @@ const SOCIALS = [
         target="_blank"
         rel="noreferrer"
       >
-        <social.icon class={social.class} /> {social.text}
+        <social.icon class="size-6" /> {social.text}
       </Link>
     ))
   }
