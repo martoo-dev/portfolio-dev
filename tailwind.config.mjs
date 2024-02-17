@@ -3,6 +3,14 @@
 export default {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   darkMode: "class",
+  safelist: [
+    {
+      pattern:
+        /(border|bg|text)-(pink|cyan|sky|blue|teal|green|lime|purple|violet|orange|yellow|gray)-(50|200|900|950)/,
+
+      variants: ["dark"],
+    },
+  ],
   theme: {
     extend: {
       colors: {
