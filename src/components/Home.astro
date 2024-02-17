@@ -1,38 +1,42 @@
 ---
-import Picture from "./Picture.astro";
-import Link from "./Link.astro";
-import Badge from "./Badge.astro";
-import Download from "./icons/download.astro";
-import Github from "./logos/github.astro";
-import LinkedIn from "./logos/linkedin.astro";
-import Mail from "./icons/mail.astro";
+import Picture from "@components/Picture.astro";
+import Button from "@components/Button.astro";
+import Badge from "@components/Badge.astro";
+import Download from "@components/icons/download.astro";
+import Github from "@components/logos/github.astro";
+import LinkedIn from "@components/logos/linkedin.astro";
+import Mail from "@components/icons/mail.astro";
 
 const SOCIALS = [
   {
     icon: Download,
     text: "Ver CV",
+    class: "-ml-1 size-6",
     href: "./CV.pdf",
   },
   {
     icon: LinkedIn,
     text: "LinkedIn",
+    class: "size-5",
     href: "https://www.linkedin.com/in/mart%C3%ADn-sep%C3%BAlveda-68473828a",
   },
   {
     icon: Github,
     text: "GitHub",
+    class: "size-5",
     href: "https://github.com/XMrtN",
   },
   {
     icon: Mail,
     text: "Contáctame",
+    class: "-ml-0.5 size-6",
     href: "mailto:sepulvedamartin072@gmail.com",
   },
 ];
 ---
 
 <Picture
-  class="w-20 sm:order-3 sm:col-span-2 sm:col-start-5 sm:row-span-3 sm:row-start-1 sm:w-32 md:ml-4 md:w-44"
+  class="w-32 sm:order-3 sm:col-span-2 sm:col-start-5 sm:row-span-3 sm:row-start-1 md:ml-4 md:w-44"
 />
 <Badge class="mr-auto sm:order-2 sm:col-span-2 sm:col-start-4 sm:row-start-1"
   >Desde Argentina 🇦🇷</Badge
@@ -46,25 +50,25 @@ const SOCIALS = [
   >
 </h1>
 <p
-  class="col-span-6 text-xl sm:order-4 sm:col-span-4 md:mb-4 [&_strong]:font-semibold [&_strong]:text-primary-900 dark:[&_strong]:text-primary-100"
+  class="col-span-6 text-xl sm:order-4 sm:col-span-4 md:mb-4 [&>strong]:font-semibold [&>strong]:text-primary-900 dark:[&>strong]:text-primary-100"
 >
   Soy un <strong>Desarrollador Web Full Stack Junior</strong>. Desde que me
   introduje en el desarrollo web supe que esto era lo que quería.
 </p>
 
-<div
+<footer
   class="col-span-6 flex flex-wrap items-center gap-2 sm:order-4 sm:col-span-4"
 >
   {
     SOCIALS.map((social) => (
-      <Link
+      <Button
         href={social.href}
         aria-label={social.text}
         target="_blank"
         rel="noreferrer"
       >
-        <social.icon class="size-6" /> {social.text}
-      </Link>
+        <social.icon class={social.class} /> {social.text}
+      </Button>
     ))
   }
-</div>
+</footer>
