@@ -1,0 +1,115 @@
+---
+import type { GetStaticPaths } from "astro";
+import Layout from "@layouts/Layout.astro";
+import Container from "@components/Container.astro";
+import Title from "@components/Title.astro";
+import Button from "@components/Button.astro";
+import Github from "@components/logos/github.astro";
+import Web from "@components/icons/web.astro";
+import Info from "@components/icons/info.astro";
+import Code from "@components/icons/code.astro";
+import Carousel from "@components/icons/carousel.astro";
+import Calendar from "@components/icons/calendar.astro";
+import { PROJECTS } from "@lib/projects";
+
+const { id } = Astro.params;
+
+const PROJECT = PROJECTS.find((project) => project.id === id);
+
+export const getStaticPaths = (() => {
+  return PROJECTS.map((project) => ({
+    params: { id: project.id },
+  }));
+}) satisfies GetStaticPaths;
+---
+
+<Layout title={PROJECT!.title} description={PROJECT!.description}>
+  <Container id="inicio" class="md:pt-36">
+    <article class="flex gap-8 max-sm:flex-col">
+      <img
+        class="w-full rounded-lg shadow-2xl dark:shadow-white/10 sm:max-w-72"
+        src={PROJECT?.images[0]}
+        alt={PROJECT?.title}
+        transition:name={`image-${id}`}
+      />
+      <div>
+        <h1
+          class="mb-3 text-3xl font-bold text-zinc-800 dark:text-zinc-100 sm:text-4xl md:text-5xl"
+        >
+          {PROJECT?.title}
+        </h1>
+        <time
+          class="flex items-center gap-x-2 text-sm text-zinc-400 dark:text-zinc-500"
+        >
+          <Calendar class="size-5" />
+          {PROJECT?.date}
+        </time>
+        {
+          (PROJECT?.repo || PROJECT?.web) && (
+            <footer class="mt-4 flex flex-wrap gap-4">
+              {PROJECT.repo && (
+                <Button href={PROJECT.repo} target="_blank" rel="noreferrer">
+                  <Github class="size-6" /> Ver código
+                </Button>
+              )}
+              {PROJECT.web && (
+                <Button href={PROJECT.web} target="_blank" rel="noreferrer">
+                  <Web class="size-6" /> Ir al sitio
+                </Button>
+              )}
+            </footer>
+          )
+        }
+      </div>
+    </article>
+  </Container>
+
+  <Container id="acerca-de" class="pt-16">
+    <Title>
+      <Info class="size-7" /> Acerca de
+    </Title>
+
+    <p class="text-lg">
+      {PROJECT?.description}
+    </p>
+  </Container>
+
+  <Container id="info" class="pt-16">
+    <Title>
+      <Code class="size-7" /> Información del proyecto
+    </Title>
+
+    <p class="mb-4 text-lg">{PROJECT?.info}</p>
+    <ul class="flex flex-wrap gap-2">
+      {
+        PROJECT?.tags.map((tag) => (
+          <li>
+            <span
+              class={`flex gap-x-2 rounded-full border border-${tag.color}-200 bg-${tag.color}-50 px-2 py-1 text-xs text-${tag.color}-900 dark:border-${tag.color}-900 dark:bg-${tag.color}-950 dark:text-${tag.color}-200`}
+            >
+              <tag.icon class="size-4" /> {tag.name}
+            </span>
+          </li>
+        ))
+      }
+    </ul>
+  </Container>
+
+  <Container id="galeria" class="pt-16">
+    <Title>
+      <Carousel class="size-7" /> Galería
+    </Title>
+
+    <article class="columns-3xs gap-4 [&>img]:mb-4">
+      {
+        PROJECT?.images.map((img) => (
+          <img
+            class="w-full rounded-lg shadow-2xl dark:shadow-white/10"
+            src={img}
+            alt="Proyecto Martín Sepúlveda"
+          />
+        ))
+      }
+    </article>
+  </Container>
+</Layout>
