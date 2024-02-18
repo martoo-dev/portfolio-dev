@@ -19,7 +19,10 @@ const { title, description } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="es" class="scroll-smooth motion-reduce:scroll-auto">
+<html
+  lang="es"
+  class="scheme-light-dark scroll-smooth data-[astro-transition]:scroll-auto motion-reduce:scroll-auto"
+>
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
@@ -28,25 +31,10 @@ const { title, description } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <ViewTransitions />
-
-    <style is:global>
-      :root {
-        color-scheme: light dark;
-      }
-
-      h1,
-      h2,
-      h3,
-      h4 {
-        text-wrap: balance;
-      }
-      p {
-        text-wrap: pretty;
-      }
-    </style>
   </head>
   <body
-    class="bg-primary-1 font-onest text-zinc-600 dark:bg-primary-1000 dark:text-zinc-400"
+    id="content"
+    class="bg-primary-1 font-onest text-zinc-600 dark:bg-primary-1000 dark:text-zinc-400 [&_h1]:text-balance [&_h2]:text-balance [&_h3]:text-balance [&_h4]:text-balance [&_p]:text-pretty"
   >
     <Header />
     <ScrollUp />
