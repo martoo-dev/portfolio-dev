@@ -31,7 +31,7 @@ import { PROJECTS } from "@lib/projects";
           transition:name={`image-${id}`}
         >
           <img
-            class="w-full transition-transform group-hover:scale-110"
+            class="group-hover-active:scale-110 w-full transition-transform"
             src={images[0]}
             alt="Proyecto Martín Sepúlveda"
           />
@@ -67,9 +67,3 @@ import { PROJECTS } from "@lib/projects";
     }
   }
 </style>
-
-<script>
-  document.addEventListener("astro:after-swap", () => {
-    document.documentElement.scrollTop = 0;
-  });
-</script>
