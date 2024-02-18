@@ -23,7 +23,10 @@ export const getStaticPaths = (() => {
 }) satisfies GetStaticPaths;
 ---
 
-<Layout title={PROJECT!.title} description={PROJECT!.description}>
+<Layout
+  title={`Proyecto ${PROJECT!.title} | Portfolio de Martín Sepúlveda`}
+  description={PROJECT!.description}
+>
   <Container id="inicio" class="md:pt-36">
     <article class="flex gap-8 max-sm:flex-col">
       <img
