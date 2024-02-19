@@ -30,7 +30,7 @@ export const getStaticPaths = (() => {
   <Container id="inicio" class="md:pt-36">
     <article class="flex gap-8 max-sm:flex-col">
       <img
-        class="w-full rounded-lg shadow-2xl dark:shadow-white/10 sm:max-w-72"
+        class="aspect-video w-full rounded-lg object-cover shadow-2xl dark:shadow-white/10 sm:max-w-72"
         src={PROJECT?.images[0]}
         alt={PROJECT?.title}
         transition:name={`image-${id}`}

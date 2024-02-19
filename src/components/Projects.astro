@@ -26,12 +26,12 @@ import { PROJECTS } from "@lib/projects";
           ))}
         </ul>
         <a
-          class="group w-full overflow-hidden rounded-lg shadow-2xl dark:shadow-white/10 sm:order-first sm:row-span-5"
+          class="group aspect-video w-full overflow-hidden rounded-lg shadow-2xl dark:shadow-white/10 sm:order-first sm:row-span-5"
           href={`/projects/${id}`}
           transition:name={`image-${id}`}
         >
           <img
-            class="group-hover-active:scale-110 w-full transition-transform"
+            class="w-full object-cover transition-transform group-hover-active:scale-110"
             src={images[0]}
             alt="Proyecto Martín Sepúlveda"
           />
