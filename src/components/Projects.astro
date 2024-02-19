@@ -7,7 +7,7 @@ import { PROJECTS } from "@lib/projects";
 <section>
   {
     PROJECTS.map(({ id, images, title, description, tags }) => (
-      <article class="card mb-16 grid items-start gap-x-4 last:mb-0 sm:grid-cols-2">
+      <article class="mb-16 grid items-start gap-x-4 last:mb-0 sm:grid-cols-2">
         <h3 class="mb-2 text-2xl font-semibold text-primary-600 dark:text-primary-300 sm:col-start-2">
           {title}
         </h3>
@@ -53,7 +53,7 @@ import { PROJECTS } from "@lib/projects";
     view-timeline-axis: block;
     animation: reveal linear both;
     animation-timeline: --revealing;
-    animation-range: entry 5% cover 20%;
+    animation-range: entry 5% cover 15%;
   }
 
   @keyframes reveal {
