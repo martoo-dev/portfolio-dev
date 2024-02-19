@@ -49,10 +49,8 @@ import { PROJECTS } from "@lib/projects";
 
 <style>
   article {
-    view-timeline-name: --revealing;
-    view-timeline-axis: block;
     animation: reveal linear both;
-    animation-timeline: --revealing;
+    animation-timeline: view(block);
     animation-range: entry 5% cover 15%;
   }
 
