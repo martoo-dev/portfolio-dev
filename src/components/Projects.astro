@@ -6,13 +6,13 @@ import { PROJECTS } from "@lib/projects";
 
 <section>
   {
-    PROJECTS.map(({ id, images, title, description, tags }) => (
-      <article class="mb-16 grid items-start gap-x-4 last:mb-0 sm:grid-cols-2">
+    PROJECTS.map(({ id, images, title, description, info, tags }) => (
+      <article class="mb-16 grid items-start gap-x-4 last:mb-0 sm:grid-cols-2 md:gap-x-8">
         <h3 class="mb-2 text-2xl font-semibold text-primary-600 dark:text-primary-300 sm:col-start-2">
           {title}
         </h3>
         <p class="line-clamp-3 max-sm:mb-4 sm:order-2 sm:col-start-2">
-          {description}
+          {description} - {info}
         </p>
         <ul class="mb-2 flex flex-wrap gap-2 sm:order-1 sm:col-start-2">
           {tags.slice(0, 3).map((tag) => (
