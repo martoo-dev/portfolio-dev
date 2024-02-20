@@ -1,22 +1,28 @@
 ---
 const EDUCATION = [
   {
+    title: "Frontend Developer",
+    description:
+      "Sinergia RH-Digital - Colaboro en el desarrollo y mantenimiento del sitio web y formo parte de un equipo que se encarga de satisfacer los requerimientos de nuestros clientes.",
+    date: "2024/01 - Hoy",
+  },
+  {
     title: "Licenciatura en Desarrollo de Software - 5º Cuatrimestre",
     description:
       "Instituto Superior IFES - Introducción a la programación con Python. Manejo de bases de datos con MySQL. Diseño de sistemas y patrones de diseño con Java. Desarrollo web y móvil.",
-    date: "2022 - Hoy",
+    date: "2022/03 - Hoy",
   },
   {
     title: "Curso Perfil Web Full Stack Jr. - 7 meses",
     description:
       "Argentina Programa 4.0 - Introducción a metodologías ágiles, Git y GitHub, Angular y Java con Spring boot",
-    date: "2022 - 2023",
+    date: "2022/06 - 2023/01",
   },
   {
     title: "Bachiller en Informática",
     description:
       "Escuela Secundaria ESRN Nº14 - Introducción al desarrollo web con HTML, CSS y PHP.",
-    date: "2017 - 2021",
+    date: "2017/03 - 2021/12",
   },
 ];
 ---
@@ -24,7 +30,7 @@ const EDUCATION = [
 <ol class="relative ml-3 border-s border-primary-600 dark:border-primary-300">
   {
     EDUCATION.map((edu) => (
-      <li class="mb-8 ms-4 last:mb-0">
+      <li class="mb-8 ms-4 last:mb-0 md:ms-8">
         <div class="absolute -start-1.5 mt-1.5 size-3 rounded-full border border-primary-600 bg-primary-100 dark:border-primary-300 dark:bg-primary-900" />
         <time class="mb-1 text-sm text-zinc-400 dark:text-zinc-500">
           {edu.date}
