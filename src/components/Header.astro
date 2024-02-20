@@ -72,41 +72,45 @@ const LINKS = [
 </style>
 
 <script>
-  // ==== SCROLL SPY ====
-  const links = document.querySelectorAll("header nav a");
+  const handleScrollSpy = () => {
+    // ==== SCROLL SPY ====
+    const links = document.querySelectorAll("header nav a");
 
-  window.addEventListener("scroll", () => {
-    let sectionVisible = false;
+    window.addEventListener("scroll", () => {
+      let sectionVisible = false;
 
-    links.forEach((a) => {
-      const sectionElement: HTMLDivElement | null = document.querySelector(
-        `section${a.getAttribute("href")?.substring(1)}`,
-      );
+      links.forEach((a) => {
+        const sectionElement: HTMLDivElement | null = document.querySelector(
+          `section${a.getAttribute("href")?.substring(1)}`,
+        );
 
-      if (!sectionElement) return;
+        if (!sectionElement) return;
 
-      if (
-        window.scrollY >= sectionElement.offsetTop - 160 &&
-        window.scrollY <
-          sectionElement.offsetTop - 160 + sectionElement.offsetHeight
-      ) {
-        sectionVisible = true;
+        if (
+          window.scrollY >= sectionElement.offsetTop - 160 &&
+          window.scrollY <
+            sectionElement.offsetTop - 160 + sectionElement.offsetHeight
+        ) {
+          sectionVisible = true;
+          links.forEach((link) => {
+            link.classList.remove("text-primary-900", "dark:text-primary-300");
+          });
+          a.classList.add("text-primary-900", "dark:text-primary-300");
+        }
+      });
+
+      if (!sectionVisible) {
         links.forEach((link) => {
           link.classList.remove("text-primary-900", "dark:text-primary-300");
         });
-        a.classList.add("text-primary-900", "dark:text-primary-300");
       }
     });
+  };
+  // On page load
+  handleScrollSpy();
+  // On change route
+  document.addEventListener("astro:after-swap", handleScrollSpy);
 
-    if (!sectionVisible) {
-      links.forEach((link) => {
-        link.classList.remove("text-primary-900", "dark:text-primary-300");
-      });
-    }
-  });
-</script>
-
-<script>
   // ==== DARK MODE ====
   const setDefaultTheme = () => {
     const themeToggle = document.getElementById("theme-toggle");
@@ -148,10 +152,8 @@ const LINKS = [
       }
     });
   };
-
   // On page load
   setDefaultTheme();
-
   // On change route
   document.addEventListener("astro:after-swap", setDefaultTheme);
 </script>
