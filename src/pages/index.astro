@@ -1,48 +1,17 @@
 ---
-import About from "@components/About.astro";
-import Container from "@components/Container.astro";
-import Experience from "@components/Experience.astro";
-import Home from "@components/Home.astro";
-import Projects from "@components/Projects.astro";
-import Title from "@components/Title.astro";
-import Briefcase from "@components/icons/briefcase.astro";
-import Code from "@components/icons/code.astro";
-import UserCheck from "@components/icons/user-check.astro";
-import Layout from "@layouts/Layout.astro";
+import Layout from "@/layouts/Layout.astro";
+import About from "@/sections/About.astro";
+import Experience from "@/sections/Experience.astro";
+import Home from "@/sections/Home.astro";
+import Projects from "@/sections/Projects.astro";
 ---
 
 <Layout
   title="Portfolio de Martín Sepúlveda"
   description="Desarrollador Web Full Stack Junior"
 >
-  <Container
-    id="inicio"
-    class="grid grid-cols-[max-content_1fr] items-end justify-center gap-x-4 sm:grid-cols-[max-content_1fr_repeat(2,_max-content)] sm:items-center md:pt-36"
-  >
-    <Home />
-  </Container>
-
-  <Container id="experiencia">
-    <Title>
-      <Briefcase class="size-7" /> Experiencia
-    </Title>
-
-    <Experience />
-  </Container>
-
-  <Container id="proyectos">
-    <Title>
-      <Code class="size-7" /> Proyectos
-    </Title>
-
-    <Projects />
-  </Container>
-
-  <Container id="sobre-mi">
-    <Title>
-      <UserCheck class="size-7" /> Sobre mí
-    </Title>
-
-    <About />
-  </Container>
+  <Home />
+  <Experience />
+  <Projects />
+  <About />
 </Layout>

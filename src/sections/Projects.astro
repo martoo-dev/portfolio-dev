@@ -1,10 +1,16 @@
 ---
 import Button from "@/components/Button.astro";
+import Title from "@/components/Title.astro";
+import Code from "@/components/icons/code.astro";
 import Link from "@/components/icons/link.astro";
 import { PROJECTS } from "@/lib/projects";
 ---
 
-<section>
+<section id="proyectos" class="pt-24">
+  <Title>
+    <Code class="size-7" /> Proyectos
+  </Title>
+
   {
     PROJECTS.map(({ id, images, title, description, info, tags }) => (
       <article class="mb-16 grid items-start gap-x-4 last:mb-0 sm:grid-cols-2 md:gap-x-8">

@@ -35,38 +35,43 @@ const SOCIALS = [
 ];
 ---
 
-<Picture
-  class="w-28 sm:order-3 sm:col-span-2 sm:col-start-3 sm:row-span-3 sm:row-start-1 md:ml-4 md:w-44"
-/>
-<Badge class="mr-auto sm:order-2 sm:col-span-2 sm:col-start-2 sm:row-start-1"
-  >Desde Argentina 🇦🇷</Badge
+<section
+  id="inicio"
+  class="grid grid-cols-[max-content_1fr] items-end justify-center gap-x-4 pt-24 sm:grid-cols-[max-content_1fr_repeat(2,_max-content)] sm:items-center md:pt-36"
 >
-
-<h1
-  class="text-3xl font-bold text-zinc-800 dark:text-zinc-100 max-sm:col-span-2 max-sm:mt-4 sm:order-1 sm:text-4xl md:text-5xl"
->
-  Hey, <span class="inline-block animate-waving">👋</span> soy <span
-    class="inline-block text-primary-600 dark:text-primary-300">Martín</span
+  <Picture
+    class="w-28 sm:order-3 sm:col-span-2 sm:col-start-3 sm:row-span-3 sm:row-start-1 md:ml-4 md:w-44"
+  />
+  <Badge class="mr-auto sm:order-2 sm:col-span-2 sm:col-start-2 sm:row-start-1"
+    >Desde Argentina 🇦🇷</Badge
   >
-</h1>
-<p
-  class="col-span-2 my-4 text-xl sm:order-4 md:mb-8 [&>strong]:font-semibold [&>strong]:text-primary-900 dark:[&>strong]:text-primary-100"
->
-  Soy un <strong>Desarrollador Web Full Stack Junior</strong>. Desde que me
-  introduje en el desarrollo web supe que esto era lo que quería.
-</p>
 
-<footer class="col-span-2 flex flex-wrap items-center gap-2 sm:order-4">
-  {
-    SOCIALS.map((social) => (
-      <Button
-        href={social.href}
-        aria-label={social.text}
-        target="_blank"
-        rel="noreferrer"
-      >
-        <social.icon class={social.class} /> {social.text}
-      </Button>
-    ))
-  }
-</footer>
+  <h1
+    class="text-3xl font-bold text-zinc-800 dark:text-zinc-100 max-sm:col-span-2 max-sm:mt-4 sm:order-1 sm:text-4xl md:text-5xl"
+  >
+    Hey, <span class="inline-block animate-waving">👋</span> soy <span
+      class="inline-block text-primary-600 dark:text-primary-300">Martín</span
+    >
+  </h1>
+  <p
+    class="col-span-2 my-4 text-xl sm:order-4 md:mb-8 [&>strong]:font-semibold [&>strong]:text-primary-900 dark:[&>strong]:text-primary-100"
+  >
+    Soy un <strong>Desarrollador Web Full Stack Junior</strong>. Desde que me
+    introduje en el desarrollo web supe que esto era lo que quería.
+  </p>
+
+  <footer class="col-span-2 flex flex-wrap items-center gap-2 sm:order-4">
+    {
+      SOCIALS.map((social) => (
+        <Button
+          href={social.href}
+          aria-label={social.text}
+          target="_blank"
+          rel="noreferrer"
+        >
+          <social.icon class={social.class} /> {social.text}
+        </Button>
+      ))
+    }
+  </footer>
+</section>

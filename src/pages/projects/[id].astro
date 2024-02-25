@@ -1,15 +1,14 @@
 ---
-import Button from "@components/Button.astro";
-import Container from "@components/Container.astro";
-import Title from "@components/Title.astro";
-import Calendar from "@components/icons/calendar.astro";
-import Carousel from "@components/icons/carousel.astro";
-import Code from "@components/icons/code.astro";
-import Info from "@components/icons/info.astro";
-import Web from "@components/icons/web.astro";
-import Github from "@components/logos/github.astro";
-import Layout from "@layouts/Layout.astro";
-import { PROJECTS } from "@lib/projects";
+import Button from "@/components/Button.astro";
+import Title from "@/components/Title.astro";
+import Calendar from "@/components/icons/calendar.astro";
+import Carousel from "@/components/icons/carousel.astro";
+import Code from "@/components/icons/code.astro";
+import Info from "@/components/icons/info.astro";
+import Web from "@/components/icons/web.astro";
+import Github from "@/components/logos/github.astro";
+import Layout from "@/layouts/Layout.astro";
+import { PROJECTS } from "@/lib/projects";
 import type { GetStaticPaths } from "astro";
 
 const { id } = Astro.params;
@@ -27,7 +26,7 @@ export const getStaticPaths = (() => {
   title={`Proyecto ${PROJECT!.title} | Portfolio de Martín Sepúlveda`}
   description={PROJECT!.description}
 >
-  <Container id="inicio" class="md:pt-36">
+  <section id="inicio" class="pt-24 md:pt-36">
     <article class="flex gap-8 max-sm:flex-col">
       <img
         class="aspect-video w-full rounded-lg object-cover shadow-2xl dark:shadow-white/10 sm:max-w-72"
@@ -65,9 +64,9 @@ export const getStaticPaths = (() => {
         }
       </div>
     </article>
-  </Container>
+  </section>
 
-  <Container id="acerca-de" class="pt-16">
+  <section id="acerca-de" class="pt-16">
     <Title>
       <Info class="size-7" /> Acerca de
     </Title>
@@ -75,9 +74,9 @@ export const getStaticPaths = (() => {
     <p class="text-lg">
       {PROJECT?.description}
     </p>
-  </Container>
+  </section>
 
-  <Container id="info" class="pt-16">
+  <section id="info" class="pt-16">
     <Title>
       <Code class="size-7" /> Información del proyecto
     </Title>
@@ -96,9 +95,9 @@ export const getStaticPaths = (() => {
         ))
       }
     </ul>
-  </Container>
+  </section>
 
-  <Container id="galeria" class="pt-16">
+  <section id="galeria" class="pt-16">
     <Title>
       <Carousel class="size-7" /> Galería
     </Title>
@@ -114,22 +113,24 @@ export const getStaticPaths = (() => {
         ))
       }
     </article>
-  </Container>
+  </section>
 </Layout>
 
 <style>
-  #galeria img {
-    animation: reveal linear both;
-    animation-timeline: view(block);
-    animation-range: entry 5% cover 15%;
+  @supports (animation-timeline: view()) {
+    #galeria img {
+      animation-timeline: view();
+      animation-name: show;
+      animation-timing-function: ease-in;
+    }
   }
 
-  @keyframes reveal {
-    from {
+  @keyframes show {
+    0% {
       opacity: 0;
       translate: 0 100px;
     }
-    to {
+    20% {
       opacity: 1;
       translate: 0 0;
     }
