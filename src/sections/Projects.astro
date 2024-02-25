@@ -1,7 +1,7 @@
 ---
-import Button from "@components/Button.astro";
-import Link from "@components/icons/link.astro";
-import { PROJECTS } from "@lib/projects";
+import Button from "@/components/Button.astro";
+import Link from "@/components/icons/link.astro";
+import { PROJECTS } from "@/lib/projects";
 ---
 
 <section>
@@ -48,18 +48,20 @@ import { PROJECTS } from "@lib/projects";
 </section>
 
 <style>
-  article {
-    animation: reveal linear both;
-    animation-timeline: view(block);
-    animation-range: entry 5% cover 15%;
+  @supports (animation-timeline: view()) {
+    article {
+      animation-timeline: view();
+      animation-name: show;
+      animation-timing-function: ease-in;
+    }
   }
 
-  @keyframes reveal {
-    from {
+  @keyframes show {
+    0% {
       opacity: 0;
       translate: 0 100px;
     }
-    to {
+    20% {
       opacity: 1;
       translate: 0 0;
     }

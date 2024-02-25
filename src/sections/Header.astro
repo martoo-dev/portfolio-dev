@@ -1,6 +1,6 @@
 ---
-import Moon from "@components/icons/moon.astro";
-import Sun from "@components/icons/sun.astro";
+import Moon from "@/components/icons/moon.astro";
+import Sun from "@/components/icons/sun.astro";
 
 const LINKS = [
   {
@@ -18,7 +18,9 @@ const LINKS = [
 ];
 ---
 
-<header class="fixed top-0 z-40 mt-2 flex w-full justify-center px-4">
+<header
+  class={`fixed top-0 z-40 mt-2 flex w-full justify-center px-4 ${Astro.props.class}`}
+>
   <nav
     class="flex flex-wrap items-center justify-center overflow-hidden rounded-full px-1 text-primary-600 dark:text-primary-600"
   >
@@ -39,10 +41,13 @@ const LINKS = [
       type="button"
       title="Cambiar tema"
       aria-label="Cambiar tema"
-      class="place-content-center px-3 py-1.5 transition-colors focus-visible:outline-none hover-active:text-primary-900 dark:hover-active:text-primary-300"
+      class="inline-flex place-content-center px-3 py-1.5 transition focus-visible:outline-none hover-active:scale-110 hover-active:text-primary-900 dark:hover-active:text-primary-300"
     >
-      <Sun id="theme-toggle-light-icon" class="hidden size-6" />
-      <Moon id="theme-toggle-dark-icon" class="hidden size-6" />
+      <Sun class="size-6 transition-transform dark:-rotate-90 dark:opacity-0" />
+      <Moon
+        class="absolute size-6 rotate-90 opacity-0 transition-transform dark:rotate-0 dark:opacity-100"
+      />
+      <span class="sr-only"></span>
     </button>
   </nav>
 </header>
@@ -114,15 +119,11 @@ const LINKS = [
   // ==== DARK MODE ====
   const setDefaultTheme = () => {
     const themeToggle = document.getElementById("theme-toggle");
-    const lightIcon = document.getElementById("theme-toggle-light-icon");
-    const darkIcon = document.getElementById("theme-toggle-dark-icon");
 
     if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
       document.documentElement.classList.add("dark");
-      lightIcon?.classList.remove("hidden");
     } else {
       document.documentElement.classList.remove("dark");
-      darkIcon?.classList.remove("hidden");
     }
 
     // On change system preferences theme
@@ -131,20 +132,12 @@ const LINKS = [
       .addEventListener("change", (e) => {
         if (e.matches) {
           document.documentElement.classList.add("dark");
-          lightIcon?.classList.remove("hidden");
-          darkIcon?.classList.add("hidden");
         } else {
           document.documentElement.classList.remove("dark");
-          lightIcon?.classList.add("hidden");
-          darkIcon?.classList.remove("hidden");
         }
       });
 
     themeToggle?.addEventListener("click", () => {
-      // toggle icons inside button
-      darkIcon?.classList.toggle("hidden");
-      lightIcon?.classList.toggle("hidden");
-
       if (document.documentElement.classList.contains("dark")) {
         document.documentElement.classList.remove("dark");
       } else {
