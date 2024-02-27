@@ -33,7 +33,7 @@ const LINKS = [
         <a
           href={link.href}
           aria-label={link.name}
-          class="my-1 whitespace-nowrap rounded-full px-3 py-1 text-sm font-medium transition-colors hover-active:bg-primary-900/10 dark:hover-active:bg-primary-50/10"
+          class="my-1 whitespace-nowrap rounded-full px-3 py-1 text-sm font-medium transition-colors hover-active:bg-primary-900/5 dark:hover-active:bg-primary-50/5"
         >
           {link.name}
         </a>
@@ -45,11 +45,11 @@ const LINKS = [
       type="button"
       title="Cambiar tema"
       aria-label="Cambiar tema"
-      class="inline-flex place-content-center px-3 py-1.5 transition focus-visible:outline-none hover-active:scale-110 hover-active:text-primary-900 dark:hover-active:text-primary-300"
+      class="inline-flex place-content-center px-3 py-1.5 transition focus-visible:outline-none hover-active:scale-125 hover-active:text-primary-900 dark:hover-active:text-primary-300"
     >
-      <Sun class="size-6 transition-transform dark:-rotate-90 dark:opacity-0" />
-      <Moon
-        class="absolute size-6 rotate-90 opacity-0 transition-transform dark:rotate-0 dark:opacity-100"
+      <Moon class="size-6 transition-transform dark:rotate-90 dark:opacity-0" />
+      <Sun
+        class="absolute size-6 -rotate-90 opacity-0 transition-transform dark:rotate-0 dark:opacity-100"
       />
       <span class="sr-only"></span>
     </button>
