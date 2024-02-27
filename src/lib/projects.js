@@ -50,17 +50,17 @@ const TAGS = {
   },
   BOOTSTRAP: {
     name: "Boostrap",
-    color: "purple",
+    color: "violet",
     icon: Bootstrap,
   },
   SPRING: {
     name: "Spring Boot",
-    color: "lime",
+    color: "green",
     icon: Spring,
   },
   MYSQL: {
     name: "MySQL",
-    color: "teal",
+    color: "sky",
     icon: MySQL,
   },
   HTML: {
@@ -70,7 +70,7 @@ const TAGS = {
   },
   CSS: {
     name: "CSS",
-    color: "blue",
+    color: "sky",
     icon: CSS,
   },
   JS: {
