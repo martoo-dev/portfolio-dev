@@ -37,30 +37,33 @@ const SOCIALS = [
 
 <section
   id="inicio"
-  class="animate-fade-in-up animate-duration-1000 grid grid-cols-[max-content_1fr] items-end justify-center gap-x-4 pt-24 sm:grid-cols-[max-content_1fr_repeat(2,_max-content)] sm:items-center md:pt-36"
+  class="grid grid-cols-[max-content_1fr] items-end justify-center gap-x-4 pt-24 sm:grid-cols-[max-content_1fr_repeat(2,_max-content)] sm:items-center md:pt-36"
 >
   <Picture
-    class="w-28 sm:order-3 sm:col-span-2 sm:col-start-3 sm:row-span-3 sm:row-start-1 md:ml-4 md:w-44"
+    class="w-28 animate-slide-in-bottom animate-duration-1000 sm:order-3 sm:col-span-2 sm:col-start-3 sm:row-span-3 sm:row-start-1 md:ml-4 md:w-44"
   />
-  <Badge class="mr-auto sm:order-2 sm:col-span-2 sm:col-start-2 sm:row-start-1"
+  <Badge
+    class="mr-auto animate-fade-in-up animate-delay-150 animate-duration-1000 sm:order-2 sm:col-span-2 sm:col-start-2 sm:row-start-1"
     >Desde Argentina 🇦🇷</Badge
   >
 
   <h1
-    class="text-3xl font-bold text-zinc-800 dark:text-zinc-100 max-sm:col-span-2 max-sm:mt-4 sm:order-1 sm:text-4xl md:text-5xl"
+    class="animate-fade-in-up text-3xl font-bold text-zinc-800 animate-delay-150 animate-duration-1000 dark:text-zinc-100 max-sm:col-span-2 max-sm:mt-4 sm:order-1 sm:text-4xl md:text-5xl"
   >
     Hey, <span class="inline-block animate-waving">👋</span> soy <span
       class="inline-block text-primary-600 dark:text-primary-300">Martín</span
     >
   </h1>
   <p
-    class="col-span-2 my-4 text-xl sm:order-4 md:mb-8 [&>strong]:font-semibold [&>strong]:text-primary-900 dark:[&>strong]:text-primary-100"
+    class="col-span-2 my-4 animate-fade-in-up text-xl animate-delay-150 animate-duration-1000 sm:order-4 md:mb-8 [&>strong]:font-semibold [&>strong]:text-primary-900 dark:[&>strong]:text-primary-100"
   >
     Soy un <strong>Desarrollador Web Full Stack Junior</strong>. Desde que me
     introduje en el desarrollo web supe que esto era lo que quería.
   </p>
 
-  <footer class="col-span-2 flex flex-wrap items-center gap-2 sm:order-4">
+  <footer
+    class="col-span-2 flex animate-fade-in-up flex-wrap items-center gap-2 animate-delay-150 animate-duration-1000 sm:order-4"
+  >
     {
       SOCIALS.map((social) => (
         <Button
