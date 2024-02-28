@@ -49,6 +49,11 @@ export default {
   },
   plugins: [
     function ({ addVariant }) {
+      addVariant("hover", "@media (any-hover: hover) { &:hover }");
+      addVariant(
+        "group-hover",
+        "@media (any-hover: hover) { :merge(.group):hover & }",
+      );
       addVariant("hover-active", [
         "@media (any-hover: hover) { &:hover }",
         "&:active",
