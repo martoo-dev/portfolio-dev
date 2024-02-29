@@ -21,14 +21,14 @@ const LINKS = [
   class={`fixed top-0 z-40 mt-2 flex w-full justify-center px-4 ${Astro.props.class}`}
 >
   <nav
-    class="flex flex-wrap items-center justify-center overflow-hidden rounded-full px-1 text-primary-600 dark:text-primary-600"
+    class="flex flex-wrap items-center justify-center overflow-hidden rounded-full px-1 text-primary-600 dark:text-primary-400"
   >
     {
       LINKS.map((link) => (
         <a
           href={link.href}
           aria-label={link.name}
-          class="my-1 whitespace-nowrap rounded-full px-3 py-1 text-sm font-medium transition-colors hover-active:bg-primary-900/5 dark:hover-active:bg-primary-50/5"
+          class="my-1 whitespace-nowrap rounded-full px-3 py-1 text-sm font-medium transition-colors hover-active:bg-primary-800/5 dark:hover-active:bg-primary-50/5"
         >
           {link.name}
         </a>
@@ -58,7 +58,7 @@ const LINKS = [
 
   @keyframes nav-shadown-dark {
     to {
-      @apply bg-primary-950 shadow-lg ring-1 ring-primary-600;
+      @apply bg-primary-900 shadow-lg ring-1 ring-primary-400;
     }
   }
 </style>
@@ -84,15 +84,15 @@ const LINKS = [
         ) {
           sectionVisible = true;
           links.forEach((link) => {
-            link.classList.remove("text-primary-900", "dark:text-primary-300");
+            link.classList.remove("text-primary-800", "dark:text-primary-300");
           });
-          a.classList.add("text-primary-900", "dark:text-primary-300");
+          a.classList.add("text-primary-800", "dark:text-primary-300");
         }
       });
 
       if (!sectionVisible) {
         links.forEach((link) => {
-          link.classList.remove("text-primary-900", "dark:text-primary-300");
+          link.classList.remove("text-primary-800", "dark:text-primary-300");
         });
       }
     });
