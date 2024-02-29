@@ -3,40 +3,32 @@ import ArrowUp from "@/components/icons/arrow-up.astro";
 ---
 
 <button
-  id="scrollUp"
+  id="scrollUpBtn"
   type="button"
   title="Ir al inicio"
-  class="group fixed bottom-2 right-4 z-20 translate-y-[200%] rounded-full bg-primary-600 p-2.5 text-zinc-100 transition focus-visible:outline-none focus-visible:ring focus-visible:ring-primary-900 hover-active:bg-primary-800 dark:bg-primary-300 dark:text-zinc-800 dark:focus-visible:ring-primary-600 dark:hover-active:bg-primary-400 md:bottom-6"
+  class="group fixed bottom-2 right-4 z-20 rounded-full bg-primary-600 p-2.5 text-zinc-100 opacity-0 transition focus-visible:outline-none focus-visible:ring focus-visible:ring-primary-900 hover-active:scale-105 hover-active:bg-primary-800 dark:bg-primary-300 dark:text-zinc-800 dark:focus-visible:ring-primary-600 dark:hover-active:bg-primary-400 md:right-2"
 >
   <ArrowUp
-    class="size-8 transition-transform group-hover-active:-translate-y-1"
+    class="size-7 rotate-45 transition-transform group-hover-active:rotate-0"
   />
 </button>
 
 <script>
-  const scrollUpBtn = () => {
-    const scrollUp = document.getElementById("scrollUp");
-
-    scrollUp!.addEventListener("click", () => {
-      document.body.scrollTop = 0;
-      document.documentElement.scrollTop = 0;
-    });
+  const handleScrollUp = () => {
+    const scrollUpBtn = document.getElementById("scrollUpBtn");
 
     window.addEventListener("scroll", () => {
-      if (
-        document.body.scrollTop > 200 ||
-        document.documentElement.scrollTop > 200
-      ) {
-        scrollUp!.classList.remove("translate-y-[200%]");
-      } else {
-        scrollUp!.classList.add("translate-y-[200%]");
-      }
+      const scrollTop =
+        document.body.scrollTop || document.documentElement.scrollTop;
+      scrollUpBtn?.classList.toggle("opacity-0", scrollTop < 200);
     });
+
+    scrollUpBtn!.addEventListener("click", () =>
+      window.scrollTo({ top: 0, behavior: "smooth" }),
+    );
   };
-
   // On page load
-  scrollUpBtn();
-
+  handleScrollUp();
   // On change route
-  document.addEventListener("astro:after-swap", scrollUpBtn);
+  document.addEventListener("astro:after-swap", handleScrollUp);
 </script>
