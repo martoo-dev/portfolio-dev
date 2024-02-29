@@ -1,7 +1,5 @@
 ---
 import ScrollUp from "@/components/ScrollUp.astro";
-import SvgBottom from "@/components/SvgBottom.astro";
-import SvgTop from "@/components/SvgTop.astro";
 import Footer from "@/sections/Footer.astro";
 import Header from "@/sections/Header.astro";
 import "@fontsource/onest/400.css";
@@ -38,14 +36,9 @@ const { title, description } = Astro.props;
     <Header />
     <ScrollUp />
 
-    <div class="relative">
-      <SvgTop />
-      <main class="mx-auto max-w-4xl px-4">
-        <slot />
-      </main>
-      <SvgBottom />
-    </div>
-
-    <Footer />
+    <main class="mx-auto max-w-4xl px-4">
+      <slot />
+      <Footer />
+    </main>
   </body>
 </html>
