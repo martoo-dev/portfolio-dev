@@ -1,6 +1,5 @@
 ---
-import Moon from "@/components/icons/moon.astro";
-import Sun from "@/components/icons/sun.astro";
+import ThemeToggle from "@/components/ThemeToggle.astro";
 
 const LINKS = [
   {
@@ -40,19 +39,7 @@ const LINKS = [
       ))
     }
 
-    <button
-      id="theme-toggle"
-      type="button"
-      title="Cambiar tema"
-      aria-label="Cambiar tema"
-      class="inline-flex place-content-center px-3 py-1.5 transition focus-visible:outline-none hover:scale-125 hover-active:text-primary-900 dark:hover-active:text-primary-300"
-    >
-      <Sun class="size-6 transition-transform dark:-rotate-90 dark:opacity-0" />
-      <Moon
-        class="absolute size-6 rotate-90 opacity-0 transition-transform dark:rotate-0 dark:opacity-100"
-      />
-      <span class="sr-only"></span>
-    </button>
+    <ThemeToggle />
   </nav>
 </header>
 
@@ -82,7 +69,6 @@ const LINKS = [
 
 <script>
   const handleScrollSpy = () => {
-    // ==== SCROLL SPY ====
     const links = document.querySelectorAll("header nav a");
 
     window.addEventListener("scroll", () => {
@@ -119,38 +105,4 @@ const LINKS = [
   handleScrollSpy();
   // On change route
   document.addEventListener("astro:after-swap", handleScrollSpy);
-
-  // ==== DARK MODE ====
-  const setDefaultTheme = () => {
-    const themeToggle = document.getElementById("theme-toggle");
-
-    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
-
-    // On change system preferences theme
-    window
-      .matchMedia("(prefers-color-scheme: dark)")
-      .addEventListener("change", (e) => {
-        if (e.matches) {
-          document.documentElement.classList.add("dark");
-        } else {
-          document.documentElement.classList.remove("dark");
-        }
-      });
-
-    themeToggle?.addEventListener("click", () => {
-      if (document.documentElement.classList.contains("dark")) {
-        document.documentElement.classList.remove("dark");
-      } else {
-        document.documentElement.classList.add("dark");
-      }
-    });
-  };
-  // On page load
-  setDefaultTheme();
-  // On change route
-  document.addEventListener("astro:after-swap", setDefaultTheme);
 </script>
