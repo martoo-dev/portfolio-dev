@@ -21,21 +21,21 @@ const LINKS = [
   class={`fixed top-0 z-40 mt-2 flex w-full justify-center px-4 ${Astro.props.class}`}
 >
   <nav
-    class="flex flex-wrap items-center justify-center overflow-hidden rounded-full px-1 text-primary-600 dark:text-primary-400"
+    class="flex flex-wrap items-center justify-center overflow-hidden rounded-full p-1 text-primary-600 dark:text-primary-400"
   >
     {
       LINKS.map((link) => (
         <a
           href={link.href}
           aria-label={link.name}
-          class="my-1 whitespace-nowrap rounded-full px-3 py-1 text-sm font-medium transition-colors hover-active:bg-primary-800/5 dark:hover-active:bg-primary-50/5"
+          class="whitespace-nowrap rounded-full px-3 py-1 text-sm font-medium transition-colors hover-active:bg-primary-800/5 dark:hover-active:bg-primary-50/5"
         >
           {link.name}
         </a>
       ))
     }
 
-    <ThemeToggle />
+    <ThemeToggle class="mr-2 p-0.5" />
   </nav>
 </header>
 
@@ -52,13 +52,13 @@ const LINKS = [
 
   @keyframes nav-shadown {
     to {
-      @apply bg-gradient-to-r from-primary-100 to-primary-400 shadow-lg ring-1 ring-primary-600;
+      @apply bg-gradient-to-r from-primary-100/70 to-primary-400/70 shadow-lg ring-1 ring-primary-400 backdrop-blur;
     }
   }
 
   @keyframes nav-shadown-dark {
     to {
-      @apply bg-primary-900 shadow-lg ring-1 ring-primary-400;
+      @apply bg-primary-950/70 shadow-lg ring-1 ring-primary-900 backdrop-blur;
     }
   }
 </style>
