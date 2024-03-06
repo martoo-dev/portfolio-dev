@@ -11,16 +11,16 @@ import React from "@/components/logos/react.astro";
 import Spring from "@/components/logos/spring.astro";
 import Stripe from "@/components/logos/stripe.astro";
 import Tailwind from "@/components/logos/tailwind.astro";
-import fairway from "@public/projects/fairway.webp";
-import fairway1 from "@public/projects/fairway1.webp";
-import fairway2 from "@public/projects/fairway2.webp";
-import fairway3 from "@public/projects/fairway3.webp";
-import fairway4 from "@public/projects/fairway4.webp";
-import fairway5 from "@public/projects/fairway5.webp";
-import imcalculator from "@public/projects/imcalculator.webp";
-import portfolioargprog from "@public/projects/portfolioargprog.webp";
-import sinergy from "@public/projects/sinergy.webp";
-import summonerspedia from "@public/projects/summonerspedia.webp";
+import fairway from "public/projects/fairway.webp";
+import fairway1 from "public/projects/fairway1.webp";
+import fairway2 from "public/projects/fairway2.webp";
+import fairway3 from "public/projects/fairway3.webp";
+import fairway4 from "public/projects/fairway4.webp";
+import fairway5 from "public/projects/fairway5.webp";
+import imcalculator from "public/projects/imcalculator.webp";
+import portfolioargprog from "public/projects/portfolioargprog.webp";
+import sinergy from "public/projects/sinergy.webp";
+import summonerspedia from "public/projects/summonerspedia.webp";
 
 const TAGS = {
   ANGULAR: {
