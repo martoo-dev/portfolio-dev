@@ -1,93 +1,88 @@
 ---
 import Button from "@/components/Button.astro";
-import Title from "@/components/Title.astro";
+import Typography from "@/components/Typography.astro";
 import Calendar from "@/components/icons/calendar.astro";
 import Carousel from "@/components/icons/carousel.astro";
 import Code from "@/components/icons/code.astro";
-import Info from "@/components/icons/info.astro";
-import Web from "@/components/icons/web.astro";
-import Github from "@/components/logos/github.astro";
+import Github from "@/components/icons/github.astro";
 import Layout from "@/layouts/Layout.astro";
 import { PROJECTS } from "@/lib/projects";
 import type { GetStaticPaths } from "astro";
 
 const { id } = Astro.params;
 
-const PROJECT = PROJECTS.find((project) => project.id === id);
+const project = PROJECTS.find((project) => project.id === id);
 
 export const getStaticPaths = (() => {
   return PROJECTS.map((project) => ({
     params: { id: project.id },
   }));
 }) satisfies GetStaticPaths;
+
+if (!project) return;
 ---
 
 <Layout
-  title={`Proyecto ${PROJECT!.title} | Portfolio de Martín Sepúlveda`}
-  description={PROJECT!.description}
+  title={`Proyecto ${project.title} | Portfolio de Martín Sepúlveda`}
+  description={project.description}
+  class="max-w-prose xl:max-w-prose"
 >
-  <section id="inicio" class="pt-24 md:pt-36">
-    <article class="flex gap-8 max-sm:flex-col">
-      <img
-        class="aspect-video w-full rounded-lg object-cover shadow-2xl dark:shadow-white/10 sm:max-w-72"
-        src={PROJECT?.images[0]}
-        alt={PROJECT?.title}
-        transition:name={`image-${id}`}
-      />
-      <div>
-        <h1
-          class="mb-3 text-3xl font-bold text-zinc-800 dark:text-zinc-100 sm:text-4xl md:text-5xl"
-        >
-          {PROJECT?.title}
-        </h1>
-        <time
-          class="flex items-center gap-x-2 text-sm text-zinc-400 dark:text-zinc-500"
-        >
-          <Calendar class="size-5" />
-          {PROJECT?.date}
-        </time>
-        {
-          (PROJECT?.repo || PROJECT?.web) && (
-            <footer class="mt-4 flex flex-wrap gap-4">
-              {PROJECT.repo && (
-                <Button href={PROJECT.repo} target="_blank" rel="noreferrer">
-                  <Github class="size-6" /> Ver código
-                </Button>
-              )}
-              {PROJECT.web && (
-                <Button href={PROJECT.web} target="_blank" rel="noreferrer">
-                  <Web class="size-6" /> Ir al sitio
-                </Button>
-              )}
-            </footer>
-          )
-        }
-      </div>
-    </article>
+  <section class="space-y-4">
+    <h1
+      class="z-10 mb-3 text-3xl font-bold text-neutral-800 sm:text-4xl md:text-5xl dark:text-neutral-100"
+      transition:name={`title-${id}`}
+    >
+      {project.title}
+    </h1>
+    <span
+      class="z-10 flex items-center gap-x-2 text-sm text-neutral-400 dark:text-neutral-600"
+      transition:name={`date-${id}`}
+    >
+      <Calendar class="size-5" />
+      {project.date}
+    </span>
+    {
+      (project.repo || project.web) && (
+        <footer class="mt-4 flex flex-wrap gap-4">
+          {project.repo && (
+            <Button href={project.repo} target="_blank" rel="noreferrer">
+              <Github class="size-6" /> Ver código
+            </Button>
+          )}
+          {project.web && (
+            <Button href={project.web} target="_blank" rel="noreferrer" />
+          )}
+        </footer>
+      )
+    }
+    <img
+      class="aspect-video w-full rounded-lg object-cover shadow-2xl dark:shadow-white/10"
+      src={project.images[0]}
+      alt={project.title}
+      transition:name={`image-${id}`}
+    />
   </section>
 
   <section id="acerca-de" class="pt-16">
-    <Title>
-      <Info class="size-7" /> Acerca de
-    </Title>
+    <Typography as="h2"> Acerca de </Typography>
 
     <p class="text-lg">
-      {PROJECT?.description}
+      {project.description}
     </p>
   </section>
 
   <section id="info" class="pt-16">
-    <Title>
+    <Typography as="h2">
       <Code class="size-7" /> Información del proyecto
-    </Title>
+    </Typography>
 
-    <p class="mb-4 text-lg">{PROJECT?.info}</p>
+    <p class="mb-4 text-lg">{project.info}</p>
     <ul class="flex flex-wrap gap-2">
       {
-        PROJECT?.tags.map((tag) => (
+        project.tags.map((tag) => (
           <li>
             <span
-              class={`flex gap-x-2 rounded-full border border-${tag.color}-200 bg-${tag.color}-50 px-2 py-1 text-xs text-${tag.color}-900 dark:border-${tag.color}-900 dark:bg-${tag.color}-950 dark:text-${tag.color}-200`}
+              class={`flex items-center gap-x-2 rounded-md border border-${tag.color}-200 bg-${tag.color}-50 px-2 py-1 text-xs text-${tag.color}-900 dark:border-${tag.color}-900 dark:bg-${tag.color}-950 dark:text-${tag.color}-200`}
             >
               <tag.icon class="size-4" /> {tag.name}
             </span>
@@ -98,13 +93,13 @@ export const getStaticPaths = (() => {
   </section>
 
   <section id="galeria" class="pt-16">
-    <Title>
+    <Typography as="h2">
       <Carousel class="size-7" /> Galería
-    </Title>
+    </Typography>
 
     <article class="columns-[12rem] gap-4 space-y-4 sm:columns-3xs">
       {
-        PROJECT?.images.map((img) => (
+        project.images.map((img) => (
           <img
             class="w-full rounded-lg shadow-2xl dark:shadow-white/10"
             src={img}

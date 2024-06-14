@@ -1,0 +1,91 @@
+---
+import Typography from "@/components/Typography.astro";
+import Arrow from "@/components/icons/arrow.astro";
+import GitHub from "@/components/icons/github.astro";
+import LinkedIn from "@/components/icons/linkedin.astro";
+import Mail from "@/components/icons/mail.astro";
+import Paper from "@/components/icons/paper.astro";
+import Layout from "../layouts/Layout.astro";
+
+const SOCIALS = [
+  {
+    Icon: GitHub,
+    name: "Seguir en GitHub",
+    link: "https://github.com/XMrtN/",
+  },
+  {
+    Icon: LinkedIn,
+    name: "Conectar en LinkedIn",
+    link: "https://www.linkedin.com/in/martinsep/",
+  },
+  {
+    Icon: Paper,
+    name: "Leer en Read.CV",
+    link: "https://read.cv/mrtn/",
+  },
+  {
+    Icon: Mail,
+    name: "Contactar por correo",
+    link: "mailto:sepulvedamartin072@gmail.com",
+  },
+];
+---
+
+<Layout
+  title="Sobre mí | Martín Sepúlveda"
+  description="Desarrollador Web Junior con 1 año de experiencia"
+>
+  <section class="grid gap-x-20 gap-y-12 lg:grid-cols-2">
+    <article class="space-y-6 lg:row-span-3 [&_strong]:font-bold">
+      <Typography as="h1">
+        Soy Martín Sepúlveda, tengo un puesto remoto en SinergiaRH-Digital.
+      </Typography>
+      <p>
+        Me llamo Santiago Martín Sepúlveda pero me dicen Martín. Empecé con la
+        programación a los 18 años aprendiendo HTML, CSS, JavaScript y PHP en
+        los <strong>estudios secundarios</strong>.
+      </p>
+
+      <p>
+        Actualmente con 20 años estoy en mi último año de una
+        <strong>carrera de Desarrollo de Software</strong> donde he ampliado mis
+        conocimientos a lenguajes como Java y Python, así como a frameworks como
+        Angular, React, Node.Js, Spring y Astro.
+      </p>
+
+      <p>
+        He tenido la oportunidad de usar mis habilidade en el exterior para
+        colaborar en el
+        <strong>sitio web de Fairway Indoor Golf</strong>.
+      </p>
+    </article>
+
+    <img
+      class="order-first aspect-square w-full max-w-72 rounded-2xl object-cover lg:order-none lg:max-w-sm xl:max-w-md"
+      src="/martin.webp"
+      alt="Martín Sepúlveda"
+    />
+
+    <ul class="grid grid-cols-2 gap-4 lg:col-start-2">
+      {
+        SOCIALS.map((item) => (
+          <li class="relative flex">
+            <a
+              href={item.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="peer flex items-center gap-4 text-sm transition-[opacity,filter] hover:opacity-20 hover:blur-sm"
+            >
+              <item.Icon class="shrink-0" />
+              {item.name}
+            </a>
+            <span class="pointer-events-none absolute flex translate-y-5 items-center gap-2 text-base font-semibold opacity-0 transition-[transform,opacity] peer-hover:translate-y-0 peer-hover:opacity-100">
+              {item.name}
+              <Arrow class="size-4" />
+            </span>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+</Layout>

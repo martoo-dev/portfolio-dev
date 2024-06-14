@@ -1,19 +1,24 @@
 ---
-import ScrollUp from "@/components/ScrollUp.astro";
-import Footer from "@/sections/Footer.astro";
-import Header from "@/sections/Header.astro";
-import "@fontsource/onest/400.css";
-import "@fontsource/onest/500.css";
-import "@fontsource/onest/600.css";
-import "@fontsource/onest/700.css";
+import Nav from "@/components/Nav";
+import ThemeToggle from "@/components/ThemeToggle.astro";
+import Book from "@/components/icons/book.astro";
+import Code from "@/components/icons/code.astro";
+import User from "@/components/icons/user.astro";
+import "@fontsource/geist-sans/300.css";
+import "@fontsource/geist-sans/400.css";
+import "@fontsource/geist-sans/500.css";
+import "@fontsource/geist-sans/600.css";
+import "@fontsource/geist-sans/700.css";
 import { ViewTransitions } from "astro:transitions";
 
 interface Props {
   title: string;
   description: string;
+  class?: string;
 }
 
-const { title, description } = Astro.props;
+const { pathname } = Astro.url;
+const { title, description, class: className } = Astro.props;
 ---
 
 <!doctype html>
@@ -25,20 +30,74 @@ const { title, description } = Astro.props;
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="/martin.webp" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+    <link rel="stylesheet" href="/src/lib/global.css" />
     <ViewTransitions />
   </head>
   <body
-    class="bg-zinc-100 bg-[radial-gradient(theme(colors.zinc.200)_1px,transparent_1px)] font-onest text-zinc-600 [background-size:16px_16px] dark:bg-primary-950 dark:bg-[radial-gradient(theme(colors.primary.900)_1px,transparent_1px)] dark:text-zinc-400 [&_h1]:text-balance [&_h2]:text-balance [&_h3]:text-balance [&_h4]:text-balance [&_p]:text-pretty"
+    class="overflow-y-scroll bg-neutral-50 bg-[url('/gradient.svg')] bg-top bg-no-repeat font-geist text-neutral-700 antialiased dark:bg-neutral-900 dark:text-white/80"
   >
-    <Header />
-    <ScrollUp />
+    <Nav client:load transition:persist="navbar" pathname={pathname}>
+      <Book slot="book" class="nav-icon" />
+      <Code slot="code" class="nav-icon" />
+      <User slot="user" class="nav-icon" />
+      <ThemeToggle slot="themeToggle" />
+    </Nav>
 
-    <main class="mx-auto max-w-4xl px-4">
+    <div class="fixed inset-x-0 top-0 isolate z-[9999] h-14">
+      <div
+        class="absolute inset-0 backdrop-blur-[1px] [mask-image:linear-gradient(180deg,#000,transparent)]"
+      >
+      </div>
+      <div
+        class="absolute inset-0 backdrop-blur-[2px] [mask-image:linear-gradient(180deg,#000,transparent)]"
+      >
+      </div>
+      <div
+        class="absolute inset-0 backdrop-blur-[3px] [mask-image:linear-gradient(180deg,#000,transparent)]"
+      >
+      </div>
+      <div
+        class="absolute inset-0 backdrop-blur-[6px] [mask-image:linear-gradient(180deg,#000,transparent)]"
+      >
+      </div>
+      <div
+        class="absolute inset-0 backdrop-blur-[12px] [mask-image:linear-gradient(180deg,#000,transparent)]"
+      >
+      </div>
+    </div>
+    <div class="fixed inset-x-0 bottom-0 isolate z-[9999] h-24">
+      <div
+        class="absolute inset-0 backdrop-blur-[1px] [mask-image:linear-gradient(0deg,#000,transparent)]"
+      >
+      </div>
+      <div
+        class="absolute inset-0 backdrop-blur-[2px] [mask-image:linear-gradient(0deg,#000,transparent)]"
+      >
+      </div>
+      <div
+        class="absolute inset-0 backdrop-blur-[3px] [mask-image:linear-gradient(0deg,#000,transparent)]"
+      >
+      </div>
+      <div
+        class="absolute inset-0 backdrop-blur-[6px] [mask-image:linear-gradient(0deg,#000,transparent)]"
+      >
+      </div>
+      <div
+        class="absolute inset-0 backdrop-blur-[12px] [mask-image:linear-gradient(0deg,#000,transparent)]"
+      >
+      </div>
+    </div>
+
+    <main
+      class:list={[
+        "container mx-auto mb-32 mt-16 px-4 sm:mt-32 xl:max-w-6xl",
+        className,
+      ]}
+    >
       <slot />
-      <Footer />
     </main>
   </body>
 </html>

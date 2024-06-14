@@ -1,0 +1,63 @@
+---
+import Typography from "@/components/Typography.astro";
+import Layout from "../layouts/Layout.astro";
+
+const EDUCATION = [
+  {
+    title: "Frontend Developer",
+    description:
+      "Sinergia RH-Digital - Colaboro en el desarrollo y mantenimiento del sitio web y formo parte de un equipo que se encarga de satisfacer los requerimientos de nuestros clientes.",
+    date: "2024/01 - Hoy",
+  },
+  {
+    title: "Licenciatura en Desarrollo de Software - 5º Cuatrimestre",
+    description:
+      "Instituto Superior IFES - Introducción a la programación con Python. Manejo de bases de datos con MySQL. Diseño de sistemas y patrones de diseño con Java. Desarrollo web y móvil.",
+    date: "2022/03 - Hoy",
+  },
+  {
+    title: "Curso Perfil Web Full Stack Jr. - 7 meses",
+    description:
+      "Argentina Programa 4.0 - Introducción a metodologías ágiles, Git y GitHub, Angular y Java con Spring boot",
+    date: "2022/06 - 2023/01",
+  },
+  {
+    title: "Bachiller en Informática",
+    description:
+      "Escuela Secundaria ESRN Nº14 - Introducción al desarrollo web con HTML, CSS y PHP.",
+    date: "2017/03 - 2021/12",
+  },
+];
+---
+
+<Layout
+  title="Experiencia | Martín Sepúlveda"
+  description="Desarrollador Web Junior con 1 año de experiencia"
+>
+  <section class="grid gap-y-12 lg:gap-y-20">
+    <article class="space-y-6 [&_strong]:font-bold">
+      <Typography as="h1">
+        Te doy un recorrido por mi <span class="italic">corta</span> carrera 😅
+      </Typography>
+      <p>
+        Aún no gozo de una trayectoria numerosa, ¡cuento contigo para hacerla
+        crecer!
+      </p>
+    </article>
+
+    <div class="grid gap-x-8 gap-y-2 sm:grid-cols-2">
+      {
+        EDUCATION.map((item) => (
+          <article class="box-outline group relative row-span-12 h-96 w-full rounded-xl p-3 shadow even:col-start-2 [&:nth-child(2)]:row-start-2">
+            <div class="absolute top-0 flex h-full w-3 flex-col items-center gap-2 group-odd:-right-[22px] group-even:hidden">
+              <div class="box-outline flex h-3.5 shrink-0" />
+              <div class="size-3 shrink-0 rounded-full border border-sky-700 bg-sky-600 dark:bg-sky-300" />
+              <div class="box-outline -mb-2 flex shrink-0 grow" />
+            </div>
+            <time datetime={item.date}>{item.date}</time>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+</Layout>

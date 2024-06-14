@@ -1,0 +1,58 @@
+---
+import Typography from "@/components/Typography.astro";
+import Arrow from "@/components/icons/arrow.astro";
+import { formatDate } from "@/lib/formatDate";
+import { PROJECTS } from "@/lib/projects";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout
+  title="Proyectos | Martín Sepúlveda"
+  description="Desarrollador Web Junior con 1 año de experiencia"
+>
+  <section class="grid gap-y-12 lg:gap-y-20">
+    <article class="space-y-6 [&_strong]:font-bold">
+      <Typography as="h1">
+        Proyectos que he realizado durante mi carrera.
+      </Typography>
+      <p>
+        Estos son algunos proyectos que he relizado por mi cuenta junto con
+        <strong>trabajos reales</strong> en los que he colaborado.
+      </p>
+    </article>
+
+    <div class="grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        PROJECTS.map((item) => (
+          <article class="relative flex flex-col gap-1 p-1">
+            <div class="box-outline absolute inset-0 -z-10 size-full rounded-xl shadow" />
+            <a
+              href={`/projects/${item.id}`}
+              class="box-outline group peer flex w-full items-center justify-center gap-2 rounded-lg bg-white/70 px-3 py-2 text-sm font-medium text-neutral-700 shadow hover:bg-neutral-100/70 hover:text-neutral-900 hover:transition-[background-color,color] dark:bg-neutral-900/70 dark:text-neutral-300 dark:hover:bg-neutral-800/70 dark:hover:text-neutral-100"
+            >
+              Ver Más
+              <Arrow class="size-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+            </a>
+            <picture
+              class="group relative order-first overflow-hidden rounded-lg"
+              transition:name={`image-${item.id}`}
+            >
+              <div class="absolute inset-0 z-10 size-full bg-gradient-to-t from-neutral-900/50" />
+              <img
+                src={item.images[0]}
+                alt={item.title}
+                class="aspect-video w-full origin-top-right object-cover transition-transform duration-300 peer-hover:group-[]:scale-105"
+              />
+              <span class="absolute bottom-4 z-10 flex w-full flex-wrap items-center justify-between px-4 text-sm text-white">
+                <span transition:name={`title-${item.id}`}>{item.title}</span>
+                <span transition:name={`date-${item.id}`}>
+                  {formatDate(item.date)}
+                </span>
+              </span>
+            </picture>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+</Layout>
