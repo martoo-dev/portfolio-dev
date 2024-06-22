@@ -14,11 +14,10 @@ import { ViewTransitions } from "astro:transitions";
 interface Props {
   title: string;
   description: string;
-  class?: string;
 }
 
 const { pathname } = Astro.url;
-const { title, description, class: className } = Astro.props;
+const { title, description } = Astro.props;
 ---
 
 <!doctype html>
@@ -37,7 +36,7 @@ const { title, description, class: className } = Astro.props;
     <ViewTransitions />
   </head>
   <body
-    class="overflow-y-scroll bg-neutral-50 bg-[url('/gradient.svg')] bg-top bg-no-repeat font-geist text-neutral-700 antialiased dark:bg-neutral-900 dark:text-white/80"
+    class="overflow-y-scroll bg-neutral-50 bg-[url('/gradient.svg')] bg-top font-geist text-neutral-700 antialiased dark:bg-neutral-900 dark:text-white/80"
   >
     <Nav client:load transition:persist="navbar" pathname={pathname}>
       <Book slot="book" class="nav-icon" />
@@ -91,13 +90,6 @@ const { title, description, class: className } = Astro.props;
       </div>
     </div>
 
-    <main
-      class:list={[
-        "container mx-auto mb-32 mt-16 px-4 sm:mt-32 lg:max-w-screen-lg",
-        className,
-      ]}
-    >
-      <slot />
-    </main>
+    <slot />
   </body>
 </html>
