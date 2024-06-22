@@ -1,7 +1,9 @@
 import { motion, useMotionValue } from "framer-motion";
+import { useEffect, useState } from "react";
 import NavItem from "./NavItem";
 
 export default function Nav(props) {
+  const [activeLink, setActiveLink] = useState("/#home");
   const LINKS = [
     {
       name: "Inicio",
@@ -30,6 +32,25 @@ export default function Nav(props) {
 
   let mouseX = useMotionValue(Infinity);
 
+  const scrollSpy = () => {
+    for (let i = LINKS.length - 2; i >= 0; i--) {
+      const section = document.getElementById(LINKS[i].link.replace("/#", ""));
+      if (!section) return;
+      const rect = section.getBoundingClientRect();
+
+      if (rect.top <= 200) {
+        setActiveLink(LINKS[i].link);
+        break;
+      }
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", scrollSpy);
+
+    return () => window.removeEventListener("scroll", scrollSpy);
+  }, []);
+
   return (
     <motion.div
       onMouseMove={(e) => mouseX.set(e.pageX)}
@@ -40,7 +61,7 @@ export default function Nav(props) {
       {LINKS.map((item, i) => (
         <NavItem
           key={i}
-          pathname={props.pathname}
+          activeLink={activeLink}
           {...item}
           isFirst={i === 0}
           isLast={i === LINKS.length - 1}

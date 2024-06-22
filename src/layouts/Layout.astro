@@ -16,7 +16,6 @@ interface Props {
   description: string;
 }
 
-const { pathname } = Astro.url;
 const { title, description } = Astro.props;
 ---
 
@@ -38,7 +37,7 @@ const { title, description } = Astro.props;
   <body
     class="overflow-y-scroll bg-neutral-50 bg-[url('/gradient.svg')] bg-top font-geist text-neutral-700 antialiased dark:bg-neutral-900 dark:text-white/80"
   >
-    <Nav client:load transition:persist="navbar" pathname={pathname}>
+    <Nav client:load transition:persist="navbar">
       <Book slot="book" class="nav-icon" />
       <Code slot="code" class="nav-icon" />
       <User slot="user" class="nav-icon" />

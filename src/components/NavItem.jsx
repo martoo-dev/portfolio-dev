@@ -2,7 +2,7 @@ import { motion, useSpring, useTransform } from "framer-motion";
 import { useRef } from "react";
 
 export default function NavItem({
-  pathname,
+  activeLink,
   link,
   name,
   element,
@@ -44,7 +44,7 @@ export default function NavItem({
             {name}
           </span>
         </span>
-        {link && link === pathname && (
+        {link && link === activeLink && (
           <div className="absolute -bottom-1.5 left-1/2 size-1 -translate-x-1/2 rounded-full bg-sky-600 dark:bg-sky-300" />
         )}
       </div>
