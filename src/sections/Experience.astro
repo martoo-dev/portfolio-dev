@@ -1,0 +1,65 @@
+---
+import Typography from "@/components/Typography.astro";
+
+const EDUCATION = [
+  {
+    title: "Frontend Developer",
+    description:
+      "Sinergia RH-Digital - Colaboro en el desarrollo y mantenimiento del sitio web y formo parte de un equipo que se encarga de satisfacer los requerimientos de nuestros clientes.",
+    date: "2024/01 - Hoy",
+  },
+  {
+    title: "Licenciatura en Desarrollo de Software - 5º Cuatrimestre",
+    description:
+      "Instituto Superior IFES - Introducción a la programación con Python. Manejo de bases de datos con MySQL. Diseño de sistemas y patrones de diseño con Java. Desarrollo web y móvil.",
+    date: "2022/03 - Hoy",
+  },
+  {
+    title: "Curso Perfil Web Full Stack Jr. - 7 meses",
+    description:
+      "Argentina Programa 4.0 - Introducción a metodologías ágiles, Git y GitHub, Angular y Java con Spring boot",
+    date: "2022/06 - 2023/01",
+  },
+  {
+    title: "Bachiller en Informática",
+    description:
+      "Escuela Secundaria ESRN Nº14 - Introducción al desarrollo web con HTML, CSS y PHP.",
+    date: "2017/03 - 2021/12",
+  },
+];
+---
+
+<section id="experience" class="scroll-m-16 space-y-12 sm:scroll-m-24">
+  <article class="space-y-6 [&_strong]:font-bold">
+    <Typography as="h2">Mi experiencia y estudios.</Typography>
+    <p>
+      Aún no gozo de una trayectoria numerosa, <strong
+        >¡cuento contigo para hacerla crecer!</strong
+      >
+    </p>
+  </article>
+
+  <div class="grid gap-x-8 gap-y-2 sm:grid-cols-2">
+    {
+      EDUCATION.map((item) => (
+        <article class="box-outline group relative space-y-2 rounded-xl p-4 shadow max-sm:ml-[22px] sm:row-span-5 sm:even:col-start-2 sm:[&:nth-child(2)]:row-start-2">
+          <time
+            datetime={item.date}
+            class="flex items-center gap-2 text-sm text-neutral-700 dark:text-neutral-400"
+          >
+            <span class="h-4 w-0.5 rounded-full bg-neutral-500" />
+            {item.date}
+          </time>
+          <h3 class="font-semibold">{item.title}</h3>
+          <p>{item.description}</p>
+
+          <div class="absolute -left-[23px] top-2 flex h-full flex-col items-center gap-2 sm:-top-10 sm:group-odd:hidden sm:group-even:-left-[23px]">
+            <div class="box-outline flex h-3.5 w-0.5 shrink-0 rounded-full max-sm:hidden" />
+            <div class="size-3 shrink-0 rounded-full border border-sky-700 bg-sky-600 dark:bg-sky-300" />
+            <div class="box-outline flex w-0.5 shrink-0 grow rounded-full sm:-mb-[9px]" />
+          </div>
+        </article>
+      ))
+    }
+  </div>
+</section>
