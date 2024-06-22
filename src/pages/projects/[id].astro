@@ -1,10 +1,5 @@
 ---
-import Button from "@/components/Button.astro";
 import Typography from "@/components/Typography.astro";
-import Calendar from "@/components/icons/calendar.astro";
-import Carousel from "@/components/icons/carousel.astro";
-import Code from "@/components/icons/code.astro";
-import Github from "@/components/icons/github.astro";
 import Layout from "@/layouts/Layout.astro";
 import { PROJECTS } from "@/lib/projects";
 import type { GetStaticPaths } from "astro";
@@ -27,77 +22,59 @@ if (!project) return;
   description={project.description}
   class="max-w-prose xl:max-w-prose"
 >
-  <section class="space-y-4">
-    <h1
-      class="z-10 mb-3 text-3xl font-bold text-neutral-800 sm:text-4xl md:text-5xl dark:text-neutral-100"
-      transition:name={`title-${id}`}
-    >
-      {project.title}
-    </h1>
-    <span
-      class="z-10 flex items-center gap-x-2 text-sm text-neutral-400 dark:text-neutral-600"
+  <article class="mx-auto max-w-prose">
+    <time
+      datetime={project.date}
+      class="flex items-center gap-3 text-neutral-700 dark:text-neutral-400"
       transition:name={`date-${id}`}
     >
-      <Calendar class="size-5" />
+      <span class="h-4 w-0.5 rounded-full bg-neutral-500"></span>
       {project.date}
-    </span>
-    {
-      (project.repo || project.web) && (
-        <footer class="mt-4 flex flex-wrap gap-4">
-          {project.repo && (
-            <Button href={project.repo} target="_blank" rel="noreferrer">
-              <Github class="size-6" /> Ver código
-            </Button>
-          )}
-          {project.web && (
-            <Button href={project.web} target="_blank" rel="noreferrer" />
-          )}
-        </footer>
-      )
-    }
-    <img
-      class="aspect-video w-full rounded-lg object-cover shadow-2xl dark:shadow-white/10"
-      src={project.images[0]}
-      alt={project.title}
-      transition:name={`image-${id}`}
-    />
-  </section>
+    </time>
 
-  <section id="acerca-de" class="pt-16">
-    <Typography as="h2"> Acerca de </Typography>
-
-    <p class="text-lg">
-      {project.description}
-    </p>
-  </section>
-
-  <section id="info" class="pt-16">
-    <Typography as="h2">
-      <Code class="size-7" /> Información del proyecto
+    <Typography as="h1" class="mt-6" transition:name={`title-${id}`}>
+      {project.title}
     </Typography>
 
-    <p class="mb-4 text-lg">{project.info}</p>
-    <ul class="flex flex-wrap gap-2">
+    <ul class="mt-4 flex flex-wrap gap-2">
       {
         project.tags.map((tag) => (
           <li>
             <span
-              class={`flex items-center gap-x-2 rounded-md border border-${tag.color}-200 bg-${tag.color}-50 px-2 py-1 text-xs text-${tag.color}-900 dark:border-${tag.color}-900 dark:bg-${tag.color}-950 dark:text-${tag.color}-200`}
+              class={`flex items-center gap-1 rounded-md border font-light border-${tag.color}-200 bg-${tag.color}-50 p-2 text-xs text-${tag.color}-900 dark:border-${tag.color}-900 dark:bg-${tag.color}-950 dark:text-${tag.color}-200`}
             >
-              <tag.icon class="size-4" /> {tag.name}
+              <tag.icon class="size-4" />
+              {tag.name}
             </span>
           </li>
         ))
       }
     </ul>
-  </section>
 
-  <section id="galeria" class="pt-16">
-    <Typography as="h2">
-      <Carousel class="size-7" /> Galería
-    </Typography>
+    <picture class="box-outline mt-8 block rounded-xl p-1 shadow">
+      <img
+        class="w-full rounded-lg object-cover"
+        src={project.images[0]}
+        alt={project.title}
+        transition:name={`image-${id}`}
+      />
+    </picture>
 
-    <article class="columns-[12rem] gap-4 space-y-4 sm:columns-3xs">
+    <Typography as="h2" variant="sm" class="mt-20">Acerca de</Typography>
+
+    <p class="mt-4 font-light">
+      {project.description}
+    </p>
+
+    <Typography as="h2" variant="sm" class="mt-20"
+      >Información del proyecto</Typography
+    >
+
+    <p class="mt-4 font-light">{project.info}</p>
+
+    <Typography as="h2" variant="sm" class="mt-20">Galería</Typography>
+
+    <div class="mt-4 columns-[12rem] gap-4 space-y-4 sm:columns-3xs">
       {
         project.images.map((img) => (
           <img
@@ -107,27 +84,6 @@ if (!project) return;
           />
         ))
       }
-    </article>
-  </section>
+    </div>
+  </article>
 </Layout>
-
-<style>
-  @supports (animation-timeline: view()) {
-    #galeria img {
-      animation-timeline: view();
-      animation-name: show;
-      animation-timing-function: ease-in;
-    }
-  }
-
-  @keyframes show {
-    0% {
-      opacity: 0;
-      translate: 0 100px;
-    }
-    20% {
-      opacity: 1;
-      translate: 0 0;
-    }
-  }
-</style>
