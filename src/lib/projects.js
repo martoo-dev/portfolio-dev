@@ -109,9 +109,9 @@ export const PROJECTS = [
     tags: [TAGS.REACT, TAGS.NODE, TAGS.BOOTSTRAP, TAGS.MYSQL, TAGS.STRIPE],
   },
   {
-    id: "sinergy",
+    id: "sinergiarh-digital",
     images: [sinergy.src, sinergy.src, sinergy.src],
-    title: "Sinergia RH-Digital",
+    title: "SinergiaRH-Digital",
     date: "2024-02",
     description: "Asesora tu empresa PYME.",
     info: "Trabajo pagado. Sistema CRUD en casi la totalidad del sitio con React, Node.Js y MySQL.",
