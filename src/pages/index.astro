@@ -1,15 +1,14 @@
 ---
 import Typography from "@/components/Typography.astro";
 import Arrow from "@/components/icons/arrow.astro";
-import Briefcase from "@/components/icons/briefcase.astro";
-import Code from "@/components/icons/code.astro";
 import Github from "@/components/icons/github.astro";
 import LinkedIn from "@/components/icons/linkedin.astro";
 import Mail from "@/components/icons/mail.astro";
-import Message from "@/components/icons/message.astro";
 import Paper from "@/components/icons/paper.astro";
-import User from "@/components/icons/user.astro";
 import Layout from "@/layouts/Layout.astro";
+import About from "@/sections/About.astro";
+import Experience from "@/sections/Experience.astro";
+import Projects from "@/sections/Projects.astro";
 
 const SOCIALS = [
   {
@@ -33,91 +32,65 @@ const SOCIALS = [
     link: "mailto:sepulvedamartin072@gmail.com",
   },
 ];
-
-const CARDS = [
-  {
-    Icon: Briefcase,
-    title: "Experiencia",
-  },
-  {
-    Icon: Code,
-    title: "Proyectos",
-  },
-  {
-    Icon: Briefcase,
-    title: "Stack",
-  },
-  {
-    Icon: User,
-    title: "Sobre mí",
-  },
-  {
-    Icon: Message,
-    title: "Contáctame",
-  },
-];
 ---
 
 <Layout
   title="Martín Sepúlveda - Desarrollador Web Junior"
   description="Desarrollador Web Junior"
 >
-  <section
-    class="flex flex-col items-start justify-between gap-2 sm:flex-row-reverse sm:gap-8"
+  <main
+    class="container mx-auto mb-32 mt-16 space-y-16 px-4 sm:mt-32 sm:space-y-24 lg:max-w-screen-lg"
   >
-    <picture
-      class="box-outline block aspect-square w-16 max-w-44 shrink-0 overflow-hidden rounded-full sm:w-full"
+    <section
+      id="home"
+      class="flex scroll-m-16 flex-col items-start justify-between gap-2 sm:scroll-m-32 sm:flex-row-reverse sm:gap-8"
     >
-      <img
-        class="size-full object-cover"
-        src="/martin.webp"
-        alt="Martín Sepúlveda"
-      />
-    </picture>
+      <picture
+        class="box-outline block aspect-square w-16 shrink-0 overflow-hidden rounded-full sm:w-32"
+      >
+        <img
+          class="size-full object-cover"
+          src="/martin.webp"
+          alt="Martín Sepúlveda"
+        />
+      </picture>
 
-    <article>
-      <Typography as="h1">
-        Hola, soy Martín
-        <span class="inline-block animate-waving">👋</span>
-      </Typography>
+      <article>
+        <Typography as="h1">
+          Hola, soy Martín.
+          <span class="inline-block animate-waving">👋</span>
+        </Typography>
 
-      <p class="mt-2">
-        Desarrollador Web Junior con 1 año de experiencia. <br /> Actualmente trabajo
-        en SinergiaRH-Digital.
-      </p>
+        <p class="mt-2">
+          +1 año de experiencia. Desarrollador Web Junior. Actualmente trabajo
+          en SinergiaRH-Digital.
+        </p>
 
-      <ul class="mt-6 flex flex-wrap items-center gap-6">
-        {
-          SOCIALS.map((item) => (
-            <li class="relative flex items-center justify-center">
-              <a
-                href={item.link}
-                target="_blank"
-                rel="noreferrer"
-                aria-label={item.name}
-                class="peer text-neutral-800 transition-[opacity,filter] hover:opacity-20 hover:blur-sm dark:text-neutral-400"
-              >
-                <item.Icon />
-              </a>
-              <Arrow class="pointer-events-none absolute size-4 -translate-x-1 translate-y-2 opacity-0 transition-[transform,opacity] peer-hover:translate-x-0 peer-hover:translate-y-0 peer-hover:opacity-100" />
-            </li>
-          ))
-        }
-      </ul>
-    </article>
-  </section>
+        <ul class="mt-6 flex flex-wrap items-center gap-6">
+          {
+            SOCIALS.map((item) => (
+              <li class="relative flex items-center justify-center">
+                <a
+                  href={item.link}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={item.name}
+                  class="peer text-neutral-800 transition-[opacity,filter] hover:opacity-20 hover:blur-sm dark:text-neutral-400"
+                >
+                  <item.Icon />
+                </a>
+                <Arrow class="pointer-events-none absolute size-4 -translate-x-1 translate-y-2 opacity-0 transition-[transform,opacity] peer-hover:translate-x-0 peer-hover:translate-y-0 peer-hover:opacity-100" />
+              </li>
+            ))
+          }
+        </ul>
+      </article>
+    </section>
 
-  <section class="mb-2 mt-24 grid gap-4 sm:grid-cols-2 md:mt-28 lg:grid-cols-6">
-    {
-      CARDS.map((item) => (
-        <article class="box-outline group relative flex h-80 flex-col items-start justify-center gap-6 rounded-xl p-3 shadow lg:col-span-2 lg:first:col-span-3 lg:[&:nth-child(2)]:col-span-3">
-          <div class="box-outline flex h-8 shrink-0 items-center gap-1 rounded-lg px-4 text-sm">
-            <item.Icon />
-            <span>{item.title}</span>
-          </div>
-          <div class="h-full">HOLAA</div>
-        </article>
-      ))
-    }
-  </section>
+    <Experience />
+
+    <Projects />
+
+    <About />
+  </main>
 </Layout>
