@@ -9,7 +9,8 @@ type Props<Tag extends HTMLTag> = Polymorphic<{
 const { as: Tag, class: className, variant = "lg", ...props } = Astro.props;
 
 const variantClasses: { [key: string]: string } = {
-  sm: "text-2xl font-bold tracking-tight text-neutral-900 dark:text-white",
+  sm: "text-xl font-medium tracking-tight text-neutral-900 dark:text-white",
+  md: "text-2xl font-bold tracking-tight text-neutral-900 dark:text-white",
   lg: "text-3xl font-bold tracking-tight text-neutral-900 lg:text-5xl dark:text-white",
 };
 ---
