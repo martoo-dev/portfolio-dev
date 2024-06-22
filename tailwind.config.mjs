@@ -29,29 +29,4 @@ export default {
       },
     },
   },
-  plugins: [
-    function ({ addVariant }) {
-      // addVariant("hover", "@media (any-hover: hover) { &:hover }");
-      // addVariant(
-      //   "group-hover",
-      //   "@media (any-hover: hover) { :merge(.group):hover & }",
-      // );
-      // addVariant(
-      //   "peer-hover",
-      //   "@media (any-hover: hover) { :merge(.peer):hover ~ & }",
-      // );
-      // addVariant("hover", [
-      //   "@media (any-hover: hover) { &:hover }",
-      //   "&:active",
-      // ]);
-      // addVariant("group-hover", [
-      //   "@media (any-hover: hover) { :merge(.group):hover & }",
-      //   ":merge(.group):active &",
-      // ]);
-      // addVariant("peer-hover", [
-      //   "@media (any-hover: hover) { :merge(.peer):hover ~ & }",
-      //   ":merge(.peer):active ~ &",
-      // ]);
-    },
-  ],
 };
