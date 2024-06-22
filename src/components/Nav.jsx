@@ -5,21 +5,21 @@ export default function Nav(props) {
   const LINKS = [
     {
       name: "Inicio",
-      link: "/",
+      link: "#home",
     },
     {
       name: "Experiencia",
-      link: "/experience",
+      link: "#experience",
       element: props.book,
     },
     {
       name: "Proyectos",
-      link: "/projects",
+      link: "#projects",
       element: props.code,
     },
     {
       name: "Sobre mí",
-      link: "/about",
+      link: "#about",
       element: props.user,
     },
     {
