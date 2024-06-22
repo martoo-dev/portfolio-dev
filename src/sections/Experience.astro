@@ -1,6 +1,5 @@
 ---
-import Title from "@/components/Title.astro";
-import Briefcase from "@/components/icons/briefcase.astro";
+import Typography from "@/components/Typography.astro";
 
 const EDUCATION = [
   {
@@ -30,27 +29,37 @@ const EDUCATION = [
 ];
 ---
 
-<section id="experiencia" class="animate-fade-in pt-24">
-  <Title>
-    <Briefcase class="size-7" /> Experiencia
-  </Title>
+<section id="experience" class="scroll-m-16 space-y-12 sm:scroll-m-24">
+  <article class="space-y-6 [&_strong]:font-bold">
+    <Typography as="h2">Mi experiencia y estudios.</Typography>
+    <p>
+      Aún no gozo de una trayectoria numerosa, <strong
+        >¡cuento contigo para hacerla crecer!</strong
+      >
+    </p>
+  </article>
 
-  <ol
-    class="relative ml-3 space-y-8 border-s border-primary-600 dark:border-primary-300 md:ml-44"
-  >
+  <div class="grid gap-x-8 space-y-2 sm:grid-cols-2">
     {
-      EDUCATION.map((edu) => (
-        <li class="ms-4 md:ms-8">
-          <div class="absolute -start-1.5 mt-1.5 size-3 rounded-full border border-primary-600 bg-primary-100 dark:border-primary-300 dark:bg-primary-800" />
-          <time class="mb-1 whitespace-nowrap text-sm text-zinc-400 dark:text-zinc-500 md:absolute md:right-full md:mr-8 md:mt-1">
-            {edu.date}
+      EDUCATION.map((item) => (
+        <article class="box-outline group relative space-y-2 rounded-xl p-4 shadow max-sm:ml-[22px] sm:row-span-5 sm:even:col-start-2 sm:[&:nth-child(2)]:row-start-2">
+          <time
+            datetime={item.date}
+            class="flex items-center gap-2 text-sm text-neutral-700 dark:text-neutral-400"
+          >
+            <span class="h-4 w-0.5 rounded-full bg-neutral-500" />
+            {item.date}
           </time>
-          <h3 class="text-lg font-semibold text-zinc-800 dark:text-zinc-100">
-            {edu.title}
-          </h3>
-          <p>{edu.description}</p>
-        </li>
+          <h3 class="font-semibold">{item.title}</h3>
+          <p>{item.description}</p>
+
+          <div class="absolute -left-[23px] top-2 flex h-full flex-col items-center gap-2 sm:-top-10 sm:group-odd:hidden sm:group-even:-left-[23px]">
+            <div class="box-outline flex h-3.5 w-0.5 shrink-0 rounded-full max-sm:hidden" />
+            <div class="size-3 shrink-0 rounded-full border border-sky-700 bg-sky-600 dark:bg-sky-300" />
+            <div class="box-outline flex w-0.5 shrink-0 grow rounded-full sm:-mb-[9px]" />
+          </div>
+        </article>
       ))
     }
-  </ol>
+  </div>
 </section>
