@@ -13,7 +13,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        geist: ["Geist Sans", "sans-serif"],
+        onest: ["Onest", "sans-serif"],
       },
       keyframes: {
         waving: {

@@ -4,11 +4,11 @@ import ThemeToggle from "@/components/ThemeToggle.astro";
 import Book from "@/components/icons/book.astro";
 import Code from "@/components/icons/code.astro";
 import User from "@/components/icons/user.astro";
-import "@fontsource/geist-sans/300.css";
-import "@fontsource/geist-sans/400.css";
-import "@fontsource/geist-sans/500.css";
-import "@fontsource/geist-sans/600.css";
-import "@fontsource/geist-sans/700.css";
+import "@fontsource/onest/300.css";
+import "@fontsource/onest/400.css";
+import "@fontsource/onest/500.css";
+import "@fontsource/onest/600.css";
+import "@fontsource/onest/700.css";
 import { ViewTransitions } from "astro:transitions";
 import "public/global.css";
 
@@ -35,7 +35,7 @@ const { title, description } = Astro.props;
     <ViewTransitions />
   </head>
   <body
-    class="font-geist overflow-y-scroll bg-neutral-50 bg-[url('/gradient.svg')] bg-top text-neutral-700 antialiased dark:bg-neutral-900 dark:text-white/80"
+    class="overflow-y-scroll bg-neutral-50 bg-[url('/gradient.svg')] bg-top font-onest text-neutral-700 antialiased dark:bg-neutral-900 dark:text-white/80"
   >
     <Nav client:load transition:persist="navbar">
       <Book slot="book" class="nav-icon" />
