@@ -31,11 +31,11 @@ const { title, description } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/martin.webp" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
-    <link rel="stylesheet" href="/src/lib/global.css" />
+    <link rel="stylesheet" href="../src/lib/global.css" />
     <ViewTransitions />
   </head>
   <body
-    class="overflow-y-scroll bg-neutral-50 bg-[url('/gradient.svg')] bg-top font-geist text-neutral-700 antialiased dark:bg-neutral-900 dark:text-white/80"
+    class="font-geist overflow-y-scroll bg-neutral-50 bg-[url('/gradient.svg')] bg-top text-neutral-700 antialiased dark:bg-neutral-900 dark:text-white/80"
   >
     <Nav client:load transition:persist="navbar">
       <Book slot="book" class="nav-icon" />
