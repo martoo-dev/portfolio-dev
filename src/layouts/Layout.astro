@@ -4,6 +4,7 @@ import ThemeToggle from "@/components/ThemeToggle.astro";
 import Book from "@/components/icons/book.astro";
 import Code from "@/components/icons/code.astro";
 import User from "@/components/icons/user.astro";
+import "@/lib/global.css";
 import "@fontsource/geist-sans/300.css";
 import "@fontsource/geist-sans/400.css";
 import "@fontsource/geist-sans/500.css";
@@ -31,7 +32,6 @@ const { title, description } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/martin.webp" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
-    <link rel="stylesheet" href="../src/lib/global.css" />
     <ViewTransitions />
   </head>
   <body
