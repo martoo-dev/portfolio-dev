@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  .h1,
+  .h2,
+  .h3,
+  .h4,
+  .h5,
+  .h6 {
+    @apply max-w-prose text-balance;
+  }
+  p {
+    @apply max-w-prose text-pretty;
+  }
+}
+
+@layer components {
+  .box-outline {
+    @apply border border-white bg-neutral-50/70 bg-blend-luminosity outline outline-1 outline-offset-0 outline-neutral-200 backdrop-blur-xl dark:border-white/10 dark:bg-neutral-900/20 dark:outline-neutral-900/20;
+  }
+
+  .nav-item {
+    @apply box-outline flex aspect-square w-10 items-center justify-center overflow-hidden rounded-full bg-neutral-200/70 dark:bg-neutral-900/70;
+  }
+
+  .nav-icon {
+    @apply size-1/2 fill-white stroke-neutral-900 dark:fill-neutral-600 dark:stroke-neutral-300;
+  }
+}

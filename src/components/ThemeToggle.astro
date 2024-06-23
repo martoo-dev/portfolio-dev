@@ -6,47 +6,42 @@ import Sun from "@/components/icons/sun.astro";
 <button
   id="theme-toggle"
   type="button"
-  title="Cambiar tema"
-  aria-label="Cambiar tema"
-  class={`inline-flex rounded-full transition focus-visible:outline-none focus-visible:ring focus-visible:ring-primary-600 hover:scale-125 hover-active:text-primary-800 dark:focus-visible:ring-primary-600 dark:hover-active:text-primary-300 ${Astro.props.class}`}
+  title="Tema"
+  class="flex size-full items-center justify-center"
 >
-  <Sun class="size-6 transition-transform dark:-rotate-90 dark:opacity-0" />
+  <Sun
+    class="nav-icon group-hover:transition-transform dark:-rotate-90 dark:opacity-0"
+  />
   <Moon
-    class="absolute size-6 rotate-90 opacity-0 transition-transform dark:rotate-0 dark:opacity-100"
+    class="nav-icon absolute rotate-90 opacity-0 group-hover:transition-transform dark:rotate-0 dark:opacity-100"
   />
 </button>
 
 <script>
-  const setDefaultTheme = () => {
-    const themeToggle = document.getElementById("theme-toggle");
-
-    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+  const setTheme = () => {
+    if (
+      localStorage.theme === "dark" ||
+      (!("theme" in localStorage) &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches)
+    ) {
       document.documentElement.classList.add("dark");
     } else {
       document.documentElement.classList.remove("dark");
     }
 
-    // On change system preferences theme
-    window
-      .matchMedia("(prefers-color-scheme: dark)")
-      .addEventListener("change", (e) => {
-        if (e.matches) {
-          document.documentElement.classList.add("dark");
-        } else {
-          document.documentElement.classList.remove("dark");
-        }
-      });
-
+    const themeToggle = document.getElementById("theme-toggle");
     themeToggle?.addEventListener("click", () => {
       if (document.documentElement.classList.contains("dark")) {
+        // Whenever the user explicitly chooses light mode
+        localStorage.theme = "light";
         document.documentElement.classList.remove("dark");
       } else {
+        // Whenever the user explicitly chooses dark mode
+        localStorage.theme = "dark";
         document.documentElement.classList.add("dark");
       }
     });
   };
-  // On page load
-  setDefaultTheme();
-  // On change route
-  document.addEventListener("astro:after-swap", setDefaultTheme);
+  document.addEventListener("astro:page-load", setTheme);
+  document.addEventListener("astro:after-swap", setTheme);
 </script>

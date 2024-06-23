@@ -1,80 +1,77 @@
 ---
-import Badge from "@/components/Badge.astro";
-import Button from "@/components/Button.astro";
-import Picture from "@/components/Picture.astro";
-import Download from "@/components/icons/download.astro";
+import Typography from "@/components/Typography.astro";
+import Arrow from "@/components/icons/arrow.astro";
+import Github from "@/components/icons/github.astro";
+import LinkedIn from "@/components/icons/linkedin.astro";
 import Mail from "@/components/icons/mail.astro";
-import Github from "@/components/logos/github.astro";
-import LinkedIn from "@/components/logos/linkedin.astro";
+import Paper from "@/components/icons/paper.astro";
 
 const SOCIALS = [
   {
-    icon: Download,
-    text: "Ver CV",
-    class: "-ml-1 size-6",
-    href: "./CV.pdf",
+    Icon: Github,
+    name: "GitHub",
+    link: "https://github.com/XMrtN/",
   },
   {
-    icon: LinkedIn,
-    text: "LinkedIn",
-    class: "size-5",
-    href: "https://www.linkedin.com/in/mart%C3%ADn-sep%C3%BAlveda-68473828a",
+    Icon: LinkedIn,
+    name: "LinkedIn",
+    link: "https://www.linkedin.com/in/martinsep/",
   },
   {
-    icon: Github,
-    text: "GitHub",
-    class: "size-5",
-    href: "https://github.com/XMrtN",
+    Icon: Paper,
+    name: "Ir a Read.CV",
+    link: "https://read.cv/mrtn/",
   },
   {
-    icon: Mail,
-    text: "Contáctame",
-    class: "-ml-0.5 size-6",
-    href: "mailto:sepulvedamartin072@gmail.com",
+    Icon: Mail,
+    name: "Contáctame",
+    link: "mailto:sepulvedamartin072@gmail.com",
   },
 ];
 ---
 
 <section
-  id="inicio"
-  class="grid grid-cols-[max-content_1fr] items-center justify-center gap-x-4 pt-24 sm:grid-cols-[max-content_1fr_repeat(2,_max-content)] sm:items-center md:pt-36"
+  id="home"
+  class="flex scroll-m-16 flex-col items-start justify-between gap-2 sm:scroll-m-32 sm:flex-row-reverse sm:gap-8"
 >
-  <Picture
-    class="w-16 animate-zoom-in sm:order-3 sm:col-span-2 sm:col-start-3 sm:row-span-3 sm:row-start-1 md:ml-4 md:w-44"
-  />
-  <Badge
-    class="mr-auto animate-fade-in-left animate-delay-150 sm:order-2 sm:col-span-2 sm:col-start-2 sm:row-start-1"
-    >Desde Argentina 🇦🇷</Badge
+  <picture
+    class="box-outline block aspect-square w-16 shrink-0 overflow-hidden rounded-full sm:w-32"
   >
+    <img
+      class="size-full object-cover"
+      src="/martin.webp"
+      alt="Martín Sepúlveda"
+    />
+  </picture>
 
-  <h1
-    class="animate-fade-in-left text-3xl font-bold text-zinc-800 dark:text-zinc-100 max-sm:col-span-2 max-sm:mt-4 sm:order-1 sm:text-4xl md:text-5xl"
-  >
-    Hey, <span class="inline-block animate-waving">👋</span> soy <span
-      class="inline-block text-primary-600 dark:text-primary-300">Martín</span
-    >
-  </h1>
-  <p
-    class="col-span-2 my-4 animate-fade-in-right text-xl sm:order-4 md:mb-8 [&>strong]:font-semibold [&>strong]:text-primary-800 dark:[&>strong]:text-primary-100"
-  >
-    Soy un <strong>Desarrollador Web Full Stack Junior</strong>. Desde que me
-    introduje en el desarrollo web supe que esto era lo que quería.
-  </p>
+  <article>
+    <Typography as="h1">
+      Hola, soy Martín.
+      <span class="inline-block animate-waving">👋</span>
+    </Typography>
 
-  <footer
-    class="col-span-2 flex animate-fade-in-right flex-wrap items-center gap-2 animate-delay-150 sm:order-4"
-  >
-    {
-      SOCIALS.map((social) => (
-        <Button
-          href={social.href}
-          aria-label={social.text}
-          target="_blank"
-          rel="noreferrer"
-        >
-          <social.icon class={social.class} /> {social.text}
-        </Button>
-      ))
-    }
-  </footer>
+    <p class="mt-2">
+      +1 año de experiencia. Desarrollador Web Junior. Actualmente trabajo en
+      SinergiaRH-Digital.
+    </p>
+
+    <ul class="mt-6 flex flex-wrap items-center gap-6">
+      {
+        SOCIALS.map((item) => (
+          <li class="relative flex items-center justify-center">
+            <a
+              href={item.link}
+              target="_blank"
+              rel="noreferrer"
+              aria-label={item.name}
+              class="peer text-neutral-800 transition-[opacity,filter] hover:opacity-20 hover:blur-sm dark:text-neutral-400"
+            >
+              <item.Icon />
+            </a>
+            <Arrow class="pointer-events-none absolute size-4 -translate-x-1 translate-y-2 opacity-0 transition-[transform,opacity] peer-hover:translate-x-0 peer-hover:translate-y-0 peer-hover:opacity-100" />
+          </li>
+        ))
+      }
+    </ul>
+  </article>
 </section>
