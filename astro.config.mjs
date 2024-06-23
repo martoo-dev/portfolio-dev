@@ -10,6 +10,5 @@ export default defineConfig({
     }),
     react(),
   ],
-  site: "https://xmrtn.github.io",
-  base: "portfolio-dev",
+  site: "https://XMrtN.github.io",
 });
