@@ -1,0 +1,98 @@
+---
+import Typography from "@/components/Typography.astro";
+import Arrow from "@/components/icons/arrow.astro";
+import GitHub from "@/components/icons/github.astro";
+import LinkedIn from "@/components/icons/linkedin.astro";
+import Mail from "@/components/icons/mail.astro";
+import Paper from "@/components/icons/paper.astro";
+
+const SOCIALS = [
+  {
+    Icon: GitHub,
+    name: "Sígueme en GitHub",
+    link: "https://github.com/XMrtN/",
+  },
+  {
+    Icon: LinkedIn,
+    name: "Conectemos en LinkedIn",
+    link: "https://www.linkedin.com/in/martinsep/",
+  },
+  {
+    Icon: Paper,
+    name: "Léeme en Read.cv",
+    link: "https://read.cv/mrtn/",
+  },
+  {
+    Icon: Mail,
+    name: "Pregúntame por correo",
+    link: "mailto:sepulvedamartin072@gmail.com",
+  },
+];
+---
+
+<section
+  id="about"
+  class="grid scroll-m-16 gap-x-20 sm:scroll-m-24 lg:grid-cols-2"
+>
+  <img
+    class="aspect-square w-full max-w-72 rounded-2xl object-cover lg:max-w-sm xl:max-w-md"
+    src="/martin.webp"
+    alt="Martín Sepúlveda"
+  />
+
+  <article
+    class="space-y-6 max-lg:mt-12 lg:order-first lg:row-span-3 [&_strong]:font-bold"
+  >
+    <Typography as="h2">Mi historia.</Typography>
+    <p>
+      Empecé con la programación a los 18 años aprendiendo HTML, CSS,
+      JavaScript, PHP y MySQL en los <strong>estudios secundarios</strong>.
+    </p>
+
+    <p>
+      Actualmente con 20 años estoy en mi último año de una
+      <strong>carrera de Desarrollo de Software</strong> donde he ampliado mis conocimientos
+      a lenguajes como Java y Python, así como a frameworks como Angular, React,
+      Node.Js, Express, Spring y Astro.
+    </p>
+
+    <p>
+      He tenido la oportunidad de usar mis habilidade en el exterior para
+      colaborar en el
+      <a href="/projects/fairway" class="font-bold hover:underline"
+        >sitio web de Fairway Indoor Golf</a
+      >.
+    </p>
+
+    <p>
+      Actualmente tengo un puesto remoto en SinergiaRH-Digital, en el que formo
+      parte de un equipo de trabajo donde principalmente nos encargamos del
+      mantenimiento y rediseño del <a
+        href="/projects/sinergiarh-digital"
+        class="font-bold hover:underline">sitio web oficial de la empresa</a
+      >.
+    </p>
+  </article>
+
+  <ul class="mt-12 grid grid-cols-2 gap-4 lg:col-start-2">
+    {
+      SOCIALS.map((item) => (
+        <li class="relative flex">
+          <a
+            href={item.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="peer flex items-center gap-4 text-sm transition-[opacity,filter] hover:opacity-20 hover:blur-sm"
+          >
+            <item.Icon class="shrink-0" />
+            {item.name}
+          </a>
+          <span class="pointer-events-none absolute flex translate-y-5 items-center gap-2 text-base font-semibold opacity-0 transition-[transform,opacity] peer-hover:translate-y-0 peer-hover:opacity-100">
+            {item.name}
+            <Arrow class="size-4" />
+          </span>
+        </li>
+      ))
+    }
+  </ul>
+</section>
