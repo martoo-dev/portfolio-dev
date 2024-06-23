@@ -38,12 +38,12 @@ if (!project) return;
 
       <ul class="mt-4 flex flex-wrap gap-2">
         {
-          project.tags.map((tag) => (
+          project.tags?.map((tag) => (
             <li>
               <span
                 class={`flex items-center gap-1 rounded-md border font-light border-${tag.color}-200 bg-${tag.color}-50 p-2 text-xs text-${tag.color}-900 dark:border-${tag.color}-900 dark:bg-${tag.color}-950 dark:text-${tag.color}-200`}
               >
-                <tag.icon class="size-4" />
+                <tag.Icon class="size-4" />
                 {tag.name}
               </span>
             </li>
@@ -51,40 +51,62 @@ if (!project) return;
         }
       </ul>
 
-      <picture class="box-outline mt-8 block rounded-xl p-1 shadow">
-        <img
-          class="w-full rounded-lg object-cover"
-          src={project.images[0]}
-          alt={project.title}
-          transition:name={`image-${id}`}
-        />
-      </picture>
-
-      <Typography as="h2" variant="sm" class="mt-20">Acerca de</Typography>
-
-      <p class="mt-4 font-light">
-        {project.description}
-      </p>
-
-      <Typography as="h2" variant="sm" class="mt-20"
-        >Información del proyecto</Typography
-      >
-
-      <p class="mt-4 font-light">{project.info}</p>
-
-      <Typography as="h2" variant="sm" class="mt-20">Galería</Typography>
-
-      <div class="mt-4 columns-[12rem] gap-4 space-y-4 sm:columns-3xs">
-        {
-          project.images.map((img) => (
+      {
+        project.images && (
+          <picture class="box-outline mt-8 block rounded-xl p-1 shadow">
             <img
-              class="w-full rounded-lg shadow-2xl dark:shadow-white/10"
-              src={img}
-              alt="Proyecto Martín Sepúlveda"
+              class="w-full rounded-lg object-cover"
+              src={project.images[0]}
+              alt={project.title}
+              transition:name={`image-${id}`}
             />
-          ))
-        }
-      </div>
+          </picture>
+        )
+      }
+
+      {
+        project.info && (
+          <>
+            <Typography as="h2" variant="sm" class="mt-20">
+              Información del proyecto
+            </Typography>
+
+            <p class="mt-4 font-light">{project.info}</p>
+          </>
+        )
+      }
+
+      {
+        project.description && (
+          <>
+            <Typography as="h2" variant="sm" class="mt-20">
+              Acerca de
+            </Typography>
+
+            <p class="mt-4 font-light">{project.description}</p>
+          </>
+        )
+      }
+
+      {
+        project.images && (
+          <>
+            <Typography as="h2" variant="sm" class="mt-20">
+              Galería
+            </Typography>
+
+            <div class="mt-4 columns-[12rem] gap-4 space-y-4 sm:columns-3xs">
+              {project.images.map((img) => (
+                <img
+                  class="w-full rounded-lg shadow-2xl dark:shadow-white/10"
+                  src={img}
+                  alt="Proyecto Martín Sepúlveda"
+                />
+              ))}
+            </div>
+          </>
+        )
+      }
     </article>
   </main>
 </Layout>

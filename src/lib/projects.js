@@ -1,5 +1,5 @@
 import Angular from "@/components/logos/angular.astro";
-import Astro from "@/components/logos/astroo.astro";
+import Astro from "@/components/logos/astrobuild.astro";
 import Bootstrap from "@/components/logos/bootstrap.astro";
 import CSS from "@/components/logos/css.astro";
 import HTML from "@/components/logos/html.astro";
@@ -26,71 +26,79 @@ const TAGS = {
   ANGULAR: {
     name: "Angular",
     color: "pink",
-    icon: Angular,
+    Icon: Angular,
   },
   ASTRO: {
     name: "Astro",
     color: "gray",
-    icon: Astro,
+    Icon: Astro,
   },
   REACT: {
     name: "React",
     color: "cyan",
-    icon: React,
+    Icon: React,
   },
   NODE: {
     name: "Node.Js",
     color: "green",
-    icon: NodeJS,
+    Icon: NodeJS,
   },
   TAILWIND: {
     name: "Tailwind CSS",
     color: "sky",
-    icon: Tailwind,
+    Icon: Tailwind,
   },
   BOOTSTRAP: {
     name: "Boostrap",
     color: "violet",
-    icon: Bootstrap,
+    Icon: Bootstrap,
   },
   SPRING: {
     name: "Spring Boot",
     color: "green",
-    icon: Spring,
+    Icon: Spring,
   },
   MYSQL: {
     name: "MySQL",
     color: "sky",
-    icon: MySQL,
+    Icon: MySQL,
   },
   HTML: {
     name: "HTML",
     color: "orange",
-    icon: HTML,
+    Icon: HTML,
   },
   CSS: {
     name: "CSS",
     color: "sky",
-    icon: CSS,
+    Icon: CSS,
   },
   JS: {
     name: "JavaScript",
     color: "yellow",
-    icon: JS,
+    Icon: JS,
   },
   PHP: {
     name: "PHP",
     color: "gray",
-    icon: PHP,
+    Icon: PHP,
   },
   STRIPE: {
     name: "Stripe",
     color: "violet",
-    icon: Stripe,
+    Icon: Stripe,
   },
 };
 
 export const PROJECTS = [
+  {
+    id: "enermac",
+    title: "Enermac",
+    date: "2024-06",
+    description: "",
+    info: "",
+    tags: [TAGS.ASTRO, TAGS.TAILWIND],
+  },
   {
     id: "fairway",
     images: [
