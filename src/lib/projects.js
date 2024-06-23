@@ -1,3 +1,16 @@
+import Angular from "@/components/logos/angular.astro";
+import Astro from "@/components/logos/astroo.astro";
+import Bootstrap from "@/components/logos/bootstrap.astro";
+import CSS from "@/components/logos/css.astro";
+import HTML from "@/components/logos/html.astro";
+import JS from "@/components/logos/javascript.astro";
+import MySQL from "@/components/logos/mysql.astro";
+import NodeJS from "@/components/logos/nodejs.astro";
+import PHP from "@/components/logos/php.astro";
+import React from "@/components/logos/react.astro";
+import Spring from "@/components/logos/spring.astro";
+import Stripe from "@/components/logos/stripe.astro";
+import Tailwind from "@/components/logos/tailwind.astro";
 import fairway from "public/projects/fairway.webp";
 import fairway1 from "public/projects/fairway1.webp";
 import fairway2 from "public/projects/fairway2.webp";
@@ -8,19 +21,6 @@ import imcalculator from "public/projects/imcalculator.webp";
 import portfolioargprog from "public/projects/portfolioargprog.webp";
 import sinergy from "public/projects/sinergy.webp";
 import summonerspedia from "public/projects/summonerspedia.webp";
-import Angular from "../components/logos/angular.astro";
-import Astro from "../components/logos/astroo.astro";
-import Bootstrap from "../components/logos/bootstrap.astro";
-import CSS from "../components/logos/css.astro";
-import HTML from "../components/logos/html.astro";
-import JS from "../components/logos/javascript.astro";
-import MySQL from "../components/logos/mysql.astro";
-import NodeJS from "../components/logos/nodejs.astro";
-import PHP from "../components/logos/php.astro";
-import React from "../components/logos/react.astro";
-import Spring from "../components/logos/spring.astro";
-import Stripe from "../components/logos/stripe.astro";
-import Tailwind from "../components/logos/tailwind.astro";
 
 const TAGS = {
   ANGULAR: {
