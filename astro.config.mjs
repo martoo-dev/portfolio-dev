@@ -10,4 +10,6 @@ export default defineConfig({
     }),
     react(),
   ],
+  site: "https://portfolio-mrtn.github.io",
+  base: "portfolio-dev",
 });
